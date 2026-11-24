@@ -1,0 +1,562 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>فهيم · مسار الليدز والسيلز</title><style>
+:root{--o:#FF6A00;--o-soft:#FFF1E6;--o-mid:#FFD9BD;--o-dark:#C24E00;--ink:#1F1F1F;--muted:#8a8a8a;--line:#EDEDED;--bg:#F7F7F7;--red:#D93B30;--red-soft:#FDECEA;--g100:#F2F2F2;--g200:#E6E6E6;--g300:#D4D4D4;--g600:#555;--blue:#2563eb;--purple:#7c3aed;--green:#059669}
+*{box-sizing:border-box}body{margin:0;background:#313131;font-family:Tahoma,Arial,sans-serif;color:var(--ink)}
+.frame{padding:14px;min-height:100vh}.app{background:#fff;border-radius:22px;overflow:hidden;min-height:calc(100vh - 28px);display:grid;grid-template-columns:236px 1fr}
+.side{background:#FBFBFB;border-inline-end:1px solid var(--line);padding:18px 12px;display:flex;flex-direction:column;gap:4px}
+.brand{display:flex;align-items:center;gap:10px;font-size:18px;padding:4px 8px 16px}.lg{width:34px;height:34px;border-radius:10px;background:var(--o);color:#fff;display:grid;place-items:center;font-weight:700}
+.nav{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:12px;font-size:13px;cursor:pointer;border:0;background:transparent;color:var(--g600);font-family:inherit;text-align:start;width:100%}
+.nav:hover{background:var(--o-soft)}.nav.on{background:var(--o);color:#fff;font-weight:700}.nav small{margin-inline-start:auto;font-size:10px;opacity:.75}.nav.star:not(.on){font-weight:700;color:var(--o-dark)}
+.sfoot{margin-top:auto;font-size:11px;color:var(--muted);line-height:1.8;padding:10px}
+.mainw{background:var(--bg);min-width:0}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 28px;background:#fff;border-bottom:1px solid var(--line)}
+.search{display:flex;align-items:center;gap:8px;background:#F4F4F4;border-radius:999px;padding:0 16px;flex:1;max-width:360px}.search input{border:0;background:transparent;padding:11px 0;width:100%;font-size:13px;outline:none;font-family:inherit}
+.refresh{display:flex;align-items:center;gap:10px}.rt{text-align:end;line-height:1.5}.rt small{display:block;font-size:11px;color:var(--muted)}.rt b{font-size:13px;direction:ltr;display:inline-block}
+.rbtn{width:38px;height:38px;border-radius:50%;border:0;background:var(--o);color:#fff;font-size:18px;display:grid;place-items:center}
+.content{padding:24px 28px 40px;max-width:1400px;margin:0 auto}.page{display:none}.page.on{display:block}
+h1{margin:0 0 6px;font-size:24px}.sub{color:var(--muted);font-size:13px}.note{color:var(--muted);font-size:12px;margin-top:8px;line-height:1.9}
+.mock{background:var(--o-soft);border:1px dashed var(--o-mid);border-radius:12px;padding:8px 14px;font-size:12px;color:var(--o-dark);margin:12px 0 14px}
+details.explain{background:#fff;border:1px solid var(--line);border-inline-start:4px solid var(--o);border-radius:14px;padding:12px 16px;margin:0 0 18px}
+details.explain summary{cursor:pointer;font-weight:700;font-size:14px}details.explain ul{margin:10px 0 2px;padding-inline-start:18px}details.explain li{font-size:13px;line-height:1.95;color:#333}details.explain li b{color:var(--o-dark)}details.explain li i{color:var(--muted);font-style:normal;font-size:12px}
+.fcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:0 0 18px}.dd{position:relative}.ddl{display:block;font-size:12px;font-weight:600;margin-bottom:8px}
+.ddb{width:100%;display:flex;justify-content:space-between;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:13px;font-family:inherit;cursor:pointer;color:var(--ink);text-align:start}
+.ddb:hover{border-color:var(--o-mid)}.ddb i{font-style:normal;color:var(--muted)}.ddm{display:none;position:absolute;top:calc(100% + 6px);inset-inline:0;z-index:40;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 30px #00000022;padding:4px;max-height:260px;overflow:auto}
+.dd.open .ddm{display:block}.ddi{padding:9px 12px;border-radius:10px;font-size:13px;cursor:pointer}.ddi:hover{background:var(--o-soft)}.ddi.on{background:var(--o-soft);color:var(--o-dark);font-weight:700}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 1px 2px #0000000a}.hls{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-bottom:16px}
+.hl{background:#fff;border:1px solid var(--line);border-inline-start:3px solid var(--o);border-radius:14px;padding:12px 14px}.hl b{font-size:12px;color:var(--o-dark)}.hl p{margin:6px 0 0;font-size:13px;line-height:1.8}
+.kbig{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.kb{padding:16px 18px;border-top:4px solid var(--g300)}.kb.o{border-top-color:var(--o)}.kb.s{border-top-color:#334155}.kb.g{border-top-color:var(--green)}.kb.b{border-top-color:var(--blue)}
+.kb .l,.ks .l{font-size:11px;font-weight:800;color:var(--muted)}.kb .v{font-size:32px;font-weight:800;margin:6px 0 2px}.kb .s2,.ks .s2{font-size:12px;color:var(--muted)}
+.ksm{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:12px 0 16px}.ks{padding:13px 15px}.ks .v{font-size:24px;font-weight:800;margin:5px 0 2px}
+.k8{grid-template-columns:repeat(4,1fr)}
+.row2{display:grid;grid-template-columns:1fr 2fr;gap:12px;margin-bottom:12px}.row2b{display:grid;grid-template-columns:1.25fr 1fr;gap:12px;margin-bottom:12px}.row11{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}.pn{padding:18px;margin-bottom:12px}.row2 .pn,.row2b .pn,.row11 .pn{margin-bottom:0}
+.phead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}.phead h3{margin:0;font-size:16px}
+.pills{display:flex;gap:6px;background:#F4F4F4;border-radius:999px;padding:3px}.pills button{border:0;background:transparent;border-radius:999px;padding:7px 16px;font-size:13px;cursor:pointer;font-family:inherit;color:#555}.pills button.on{background:var(--o);color:#fff}
+.leg{font-size:12px;color:#555;display:flex;gap:14px;flex-wrap:wrap;margin-bottom:8px}.leg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-inline-end:5px;vertical-align:middle}
+.svgc{width:100%;height:auto;display:block}.gl{stroke:#E6E6E6;stroke-dasharray:3 3}.ax{font-size:10.5px;fill:#8a8a8a}.ax2{font-size:9.5px;fill:#b0b0b0}.ax.bl{fill:#2563eb}.axt{font-size:11px;fill:#555}.vt{font-size:10.5px;fill:#333;font-weight:700}.bar{fill:#2563eb;opacity:.28}
+.band{fill:#FDECEA;opacity:.75}.bandt{font-size:10.5px;fill:#D93B30}.sh{display:none}.sh.on{display:block}.cl95{fill:none;stroke:#8a8a8a;stroke-width:1.2;stroke-dasharray:5 4}.cl99{fill:none;stroke:#C0C0C0;stroke-width:1.1;stroke-dasharray:2 3}
+.bub{fill:#FF6A00;fill-opacity:.5;stroke:#C24E00;stroke-width:1.5}.bub.est{fill:#7c3aed;fill-opacity:.4;stroke:#7c3aed}.bl2{font-size:11px;fill:#1F1F1F}.good{font-size:11px;fill:#059669}.slh{font-size:12px;font-weight:700;fill:#fff;stroke:#fff;stroke-width:4px;stroke-linejoin:round}.sl{font-size:12px;font-weight:700;fill:#1F1F1F}.sl2{font-size:11px;fill:#555}
+.frow{display:grid;grid-template-columns:120px 1fr 70px 52px;gap:10px;align-items:center;margin:11px 0;font-size:13px}.fb{background:#F1F1F1;border-radius:7px;height:20px}.fb i{display:block;height:20px;background:var(--o);border-radius:7px;min-width:3px}.frow small{color:var(--muted)}
+.tops{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}.tcard{padding:14px 16px}.tcard h3{margin:0 0 8px;font-size:11px;font-weight:800;letter-spacing:.05em;color:#475569}
+.trow{padding:7px 8px;margin:0 -8px;border-radius:8px}.trow:hover{background:#FFF7ED}.tl{display:flex;justify-content:space-between;gap:10px;font-size:13px}.tl .nm{font-weight:600}.tb{height:5px;background:#FFEDD5;border-radius:99px;margin:5px 0 2px;overflow:hidden}.tb i{display:block;height:100%;background:var(--o);border-radius:99px}
+.tw{overflow-x:auto;border-radius:14px;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;font-size:12.5px}th{background:var(--o-soft);padding:11px 13px;text-align:right;white-space:nowrap;font-weight:700}td{padding:11px 13px;border-top:1px solid var(--line);white-space:nowrap;font-variant-numeric:tabular-nums}
+tbody tr:nth-child(odd){background:#F6F6F6}tbody tr:hover{background:#FFE6D1}.mut{color:#B3B3B3}th.s{cursor:pointer}th.s:hover,th.sorted{color:var(--o-dark)}
+.chip{display:inline-block;font-size:10.5px;font-weight:700;border-radius:999px;padding:2px 9px;background:var(--g100);color:var(--g600)}.chip.up{background:var(--o-soft);color:var(--o-dark)}.chip.dn{background:var(--red-soft);color:var(--red)}.chip.p{background:#EFE7FD;color:#7c3aed}
+.hm{border-collapse:separate;border-spacing:2px;font-size:10px}.hm th{background:transparent;padding:2px 4px;font-size:10px;font-weight:600;color:#8a8a8a}.hm td{padding:0;width:34px;height:26px;text-align:center;border:0;border-radius:5px;font-size:10px}.hm td.na{background:#F4F4F4;color:#B3B3B3}.hm tbody th{text-align:start;font-size:11px;color:#555;padding-inline-end:8px;white-space:nowrap}
+.pager{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap}.pinfo{font-size:12.5px;color:var(--muted)}.pbtns{display:flex;gap:5px;flex-wrap:wrap}.pbtns button{min-width:32px;height:32px;border:1px solid var(--line);background:#fff;border-radius:999px;font-size:12.5px;cursor:pointer;font-family:inherit}.pbtns button.on{background:var(--o);border-color:var(--o);color:#fff}.pbtns button:disabled{opacity:.4}
+.ctl{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.ctl input{border:1px solid #334155;border-radius:8px;padding:7px 10px;font:inherit;font-size:13px;outline:none;width:200px}.ctl input.n{width:80px}.ctl label{font-size:12px;color:#555}
+.sc2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}.sc2 .card{padding:16px}.sc2 h3{margin:0 0 8px;font-size:15px}.sc2 li{font-size:13px;line-height:1.95;color:#555}.sc2 ul{margin:0;padding-inline-start:18px}
+.fl{display:grid;grid-template-columns:150px 1fr 60px 56px;gap:10px;align-items:center;margin:8px 0;font-size:12.5px}.fl .fb{height:14px}.fl .fb i{height:14px;background:var(--red)}
+.times{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}.times .t{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px}.times small{color:var(--muted);font-size:11.5px;display:block}.times b{font-size:20px}
+@media(max-width:1100px){.app{grid-template-columns:1fr}.side{display:none}.kbig,.row2,.row2b,.row11,.tops,.k8{grid-template-columns:1fr}.ksm{grid-template-columns:repeat(2,1fr)}}
+.info{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border-radius:50%;background:#e2e8f0;color:#475569;font-size:10px;font-weight:700;margin-inline-start:6px;cursor:help;position:relative;font-style:normal}.info:hover::after,.info:focus::after{content:attr(data-tip);position:absolute;z-index:40;top:20px;right:-8px;width:270px;background:#1f2937;color:#fff;padding:9px 11px;border-radius:9px;font-size:12px;font-weight:400;line-height:1.7;text-align:right;white-space:normal}.note.l1{margin:-4px 0 8px;color:#64748b}.mut{color:#B3B3B3}.tb{height:5px;background:#FFEDD5;border-radius:99px;margin:5px 0 2px;overflow:hidden;min-width:70px}.tb i{display:block;height:100%;background:var(--o);border-radius:99px}.nav small:empty{display:none}.k8{grid-template-columns:repeat(4,1fr)}.ctl input[type=date]{width:150px}#pg h3{margin:0 0 6px}.pills button{white-space:nowrap}.card.pn h3{display:flex;align-items:center}</style></head><body><div class="frame"><div class="app"><aside class="side"><div class="brand"><span class="lg">ف</span><b>فهيم</b></div><div id="nav" style="display:contents"></div><div class="sfoot" id="sfoot"></div></aside><div class="mainw"><header class="top"><div><b>مسار الليدز والسيلز</b></div><div class="refresh"><div class="rt"><small>آخر تحديث للشيت (بتوقيت الرياض)</small><b id="asof">—</b></div><button class="rbtn" id="refresh" title="تحديث الداتا الآن">↻</button></div></header><main class="content"><div class="fcards" id="fb"></div><div id="pg"><div class="card pn"><div class="note">جاري تحميل الداتا…</div></div></div></main></div></div></div><script>/* Faheem leads dashboard - part 1: helpers, data, filters, charts. All numbers are computed here from the sheet rows. */
+(function () {
+'use strict';
+const NM = 25;
+const $ = (id) => document.getElementById(id);
+const fmt = (n) => (n == null || !isFinite(n)) ? '—' : Math.round(n).toLocaleString('en-US');
+const pct = (x, d) => (x == null || !isFinite(x)) ? '—' : (x * 100).toFixed(d == null ? 1 : d) + '%';
+const dv = (a, b) => b ? a / b : null;
+const kf = (n) => n >= 1e6 ? (n / 1e6).toFixed(1) + 'M' : n >= 1e3 ? (n / 1e3).toFixed(n >= 1e5 ? 0 : 1) + 'K' : String(Math.round(n));
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const hrs = (m) => m == null || m < 0 ? '—' : m < 60 ? Math.round(m) + ' د' : m < 1440 ? (m / 60).toFixed(1) + ' س' : (m / 1440).toFixed(1) + ' يوم';
+
+// ---------- dates (UTC, ISO strings) ----------
+const iso = (d) => d.toISOString().slice(0, 10);
+const pd = (s) => new Date(s + 'T00:00:00Z');
+const addD = (s, n) => { const d = pd(s); d.setUTCDate(d.getUTCDate() + n); return iso(d); };
+const addM = (s, n) => { const d = pd(s); const day = d.getUTCDate(); d.setUTCDate(1); d.setUTCMonth(d.getUTCMonth() + n); const last = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 0)).getUTCDate(); d.setUTCDate(Math.min(day, last)); return iso(d); };
+const sow = (s) => { const d = pd(s); d.setUTCDate(d.getUTCDate() - d.getUTCDay()); return iso(d); };   // week starts Sunday
+const som = (s) => s.slice(0, 8) + '01';
+const dm = (s) => +s.slice(8) + '/' + +s.slice(5, 7);
+const MON = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+const monName = (s) => MON[+s.slice(5, 7) - 1] + ' ' + s.slice(0, 4);
+
+// ---------- labels ----------
+const CHL = { Snapchat: 'Snapchat', TikTok: 'TikTok', Google: 'Google', 'Google Max': 'Google Max', Facebook: 'Facebook (Meta)', Influencer: 'Influencers', iOS: 'iOS (تطبيق)', Android: 'Android (تطبيق)', Organic: 'Organic / مباشر', WhatsApp: 'WhatsApp (جديد)', Other: 'أخرى' };
+const chl = (c) => CHL[c] || c;
+const EST = { iOS: 1, Android: 1 };
+const SPB = ['أقل من 5 دقايق', '5 – 15 دقيقة', '15 – 60 دقيقة', '1 – 3 ساعات', '3 – 12 ساعة', '12 – 24 ساعة', 'أكتر من يوم', 'ما اتواصلش معاه'];
+const GPB = ['أقل من ساعتين', 'ساعتين – يوم', '1 – 3 أيام', 'أكتر من 3 أيام'];
+const SLOT = ['12ص – 6ص', '6ص – 12ض', '12ض – 5م', '5م – 9م', '9م – 12ص'];
+const RJL = ['تم الدخول بالغلط', 'تجربة المنصة من باب الفضول', 'السعر', 'أخرى'];
+const RLL = ['ما اتسجّلش', 'الأم', 'الطالب نفسه', 'الأب', 'أخرى', 'الأخ', 'الأخت', 'غير معروف'];
+const SJL = ['الإنجليزي', 'الرياضيات', 'أخرى', 'القدرات', 'المتابعة', 'التحصيلي', 'الكيمياء', 'الفيزياء', 'مادة بالإنجليزي'];
+const LVN = { 1: 'مهتم', 2: 'متردد', 3: 'مش مهتم', 4: 'مش مناسب', 5: 'لسه ما اتعرفش' };
+const LV2 = { 'مهتم بالاشتراك في الباقات': 1, 'مازال بيفكر': 2, 'رد ولكن طلب اعادة التواصل في وقت لاحق': 2, 'متابعة واتس اب': 2, 'مكالمة خدمة': 2, 'رد': 2, 'غير مهتم او رافض': 3, 'غير محتاج حاليا': 3, 'معلم سجل بالخطأ كطالب': 4, 'طالب جمعية او جهة': 4, 'الرقم خطأ او غير صحيح': 4 };
+const lvOf = (st) => LV2[st] || 5;
+const PATHC = { c: { n: 'ما اتواصلش معاه', r: 'اتواصل ومارد', a: 'رد' }, t: { n: 'من غير تجريبية', t: 'حضر التجريبية', x: 'حضر بعد الدفع', u: 'حجز والطالب ما حضرش', s: 'حجز والمدرّس ما حضرش', h: 'حجز وما اتعملتش' }, p: { n: 'ما دخلش الدفع', p: 'دفع', f: 'دخل الدفع وما كمّلش' } };
+const pathLbl = (p) => (PATHC.c[p[0]] || p[0]) + ' ← ' + (PATHC.t[p[1]] || p[1]) + ' ← ' + (PATHC.p[p[2]] || p[2]);
+
+// ---------- glossary (wording from references/metrics-glossary.md) ----------
+const GL = {
+  leads: ['الليدز', 'طلاب سعوديين نشطين سجّلوا في الفترة', 'كل طالب سعودي نشط وبدون كفيل، حسب تاريخ تسجيله. التاريخ في الداشبورد كلها هو تاريخ التسجيل، مش تاريخ الدفع ولا وقت فتح الداشبورد.'],
+  paid: ['دفعوا', 'ليدز عندهم دفعة ناجحة على الأقل', 'الليدز اللي ليهم دفعة ناجحة غير مستردة لحد آخر تحديث، حتى لو الدفع حصل بعد الفترة. كل ما الليد يكبر، الرقم هيزيد.'],
+  revenue: ['الإيراد (ريال)', 'إيراد ليدز الفترة، بتاريخ التسجيل', 'مجموع كل الدفعات الناجحة غير المستردة للطلاب اللي سجّلوا في الفترة، بأي تاريخ دفع، وبيشمل تجديداتهم. مش هو الفلوس اللي دخلت في الفترة، فمش لازم يطابق داشبورد الإعلانات اللي بتحسب بتاريخ الدفع.'],
+  aov: ['متوسط العملية (ريال)', 'الإيراد ÷ الدافعين', 'المتوسط بيتشدّ لفوق بسبب طلبات كبيرة قليلة. هنا بنقسم الإيراد على عدد الدافعين.'],
+  conv: ['التحويل الكلي', 'دفعوا ÷ الليدز', 'ليدز الأسابيع الأخيرة لسه ما خدتش وقتها في الدفع، فتحويلها بيبان أقل وهو بيزيد بعدين. للمقارنة العادلة استخدم تحويل 14 يوم.'],
+  conv14: ['تحويل 14 يوم', 'دفع خلال 14 يوم من التسجيل', 'بيتحسب لليدز اللي عدّى عليها 14 يوم بس، عشان نقارن ليدز قديمة بليدز أحدث بإنصاف. مختلف عن «التحويل الكلي».'],
+  answered: ['نسبة الرد', 'ردّوا على السيلز ÷ الليدز', 'الطالب «رد» لو فيه تواصل واحد على الأقل بحالة: رد، أو طلب إعادة تواصل، أو متابعة واتساب، أو مكالمة خدمة.'],
+  contacted: ['اتواصل معاهم', 'ليدز ليهم أي تواصل مسجّل', 'أي ريمارك من السيلز على الطالب، سواء رد أو لأ.'],
+  booked: ['حجزوا تجريبية', 'حجزوا ÷ الليدز', 'التجريبية = حجز معلّم كتجريبي في الحجوزات، أو ليه سطر تجريبي في سجل الحصص. التعريفين مجموعين.'],
+  attended: ['حضروا التجريبية', 'حضروا ÷ اللي حجزوا', '«حضر» = الطالب والمدرّس دخلوا الحصة قبل أول دفع. اللي حضر بعد ما دفع بيتحسب «من غير تجريبية».'],
+  entered: ['دخلوا صفحة الدفع', 'ليدز ليهم محاولة دفع', 'أي محاولة، ناجحة أو فاشلة أو معلّقة.'],
+  rpl: ['إيراد لكل ليد', 'الإيراد ÷ الليدز', 'بيتأثر بتأخر الدفع زي التحويل بالظبط، فقارنه بين فترات عمرها متساوي.'],
+  c1h: ['تواصل خلال ساعة', 'من اللي اتواصل معاهم: أول تواصل في أقل من ساعة', 'المقام هو الليدز اللي اتواصل معاهم فعلًا، مش كل الليدز. بيتحسب بفلتر التاريخ والقناة بس.'],
+  expected: ['المتوقع', 'تحويل متوقع حسب قناة ووقت تسجيل ليدز السيلز', 'لكل ليد بنحسب التحويل المعتاد لنفس القناة ونفس فترة التسجيل، ونجمعها لكل سيلز. ما بيحسبش الصف الدراسي ولا جودة الليد.'],
+  badge: ['التقييم', 'فوق / في / تحت المتوقع', 'بتتحدد لما الفرق يعدّي حدود الصدفة. السيلز اللي عنده أقل من 100 ليد ناضج بيظهر «عيّنة صغيرة» وما بيتقيّمش.'],
+  fplot: ['Funnel plot', 'النقطة برّه الخطوط = فرق حقيقي', 'المحور الأفقي عدد الليدز الناضجة، والرأسي الفرق عن المتوقع. الخطوط المتقطعة حدود الصدفة. كل ما الليدز أقل، الحدود أوسع.'],
+  waiting: ['ليدز مستنية من غير تواصل', 'بلا أي تواصل بعد أكتر من 3 ساعات', 'ده الرقم اللي ينفع يتعالج النهارده. بيشمل ليدز قديمة من أسابيع.'],
+  fc: ['وسيط أول تواصل', 'من التسجيل لأول تواصل من السيلز', 'محسوب للي اتواصل معاهم بس. على مستوى السيلز هو متوسط مرجّح لوسيط كل أسبوع (تقريبي)، وعلى مستوى الفريق وسيط أسبوعي دقيق.'],
+  speed: ['سرعة أول تواصل', 'الليدز مقسّمة حسب وقت أول تواصل', 'الشرائح: أقل من 5 دقايق، لحد 15، لحد 60، لحد 3 ساعات، لحد 12، لحد يوم، أكتر من يوم، وما اتواصلش معاه.'],
+  slot: ['وقت التسجيل في اليوم', '5 فترات في اليوم', 'من 12 بالليل لـ6 الصبح، لـ12 الضهر، لـ5 العصر، لـ9 بالليل، لـ12.'],
+  heat: ['Heatmap اليوم والساعة', 'الأغمق = أكتر', 'الأسبوع من الأحد. الخلايا الرمادي عندها ليدز قليلة جدًا ومش بتتحسب نسبتها.'],
+  gap: ['بُعد ميعاد الحصة', 'الوقت بين حجز التجريبية وميعادها', '«ما حضرش» الطالب ما دخلش والمدرّس دخل. «ما اتعملتش» محدش دخل.'],
+  laststatus: ['آخر حالة سجّلها السيلز', 'آخر ريمارك لكل طالب', 'حالة B2C لو موجودة وإلا حالة التواصل. «بدون تواصل» لو مفيش ريمارك.'],
+  path: ['المسار', 'كل طالب ماشي في فرع واحد بس', 'سجّل ← (رد / ما ردّش / ما اتواصلش) ← (حضر التجريبية / حجز وما حضرش / من غير تجريبية) ← (دفع / دخل الدفع وما كمّلش / ما دخلش).'],
+  cohort: ['منحنى الكوهورت', 'الدفع التراكمي بعد 1/3/7/14/30 يوم', 'كل صف أسبوع تسجيل. بنعرض بس الخانات اللي عدّى عليها وقت كفاية، فالأسبوع الأخير مش بيبان أضعف من الحقيقة.'],
+  fail: ['دخلوا الدفع وما كمّلوش', 'محاولة فاشلة أو معلّقة ومفيش ناجحة', 'غالبيتهم تقسيط معلّق أو انتهت مهلته. الأرقام دي قائمة متابعة، مش خسارة نهائية.'],
+  channel: ['القناة', 'أول مصدر اتسجّل للطالب', 'من أول utm_source. من غير UTM: لو سجّل من التطبيق iOS أو Android، ولو جاي من حملة واتساب فهو WhatsApp، وغير كده Organic. كل ليد في قناة واحدة.'],
+  appest: ['iOS و Android', 'تقدير من جهاز التطبيق', 'مش إعلانات متنسّبة. الطالب اللي ما عندوش UTM وفتح من التطبيق بيتحسب حسب نظام جهازه.'],
+  samep: ['المقارنة بنفس الفترة', 'كل شهر من أوله لنفس اليوم والساعة', 'بنحسب الدفع والتواصل والحجز اللي حصل قبل نفس النقطة من الشهر بس. رقم الإيراد هنا ممكن يختلف عن رقم الصفحة الرئيسية لنفس الشهر القديم، وده مقصود.'],
+  grade: ['الصف الدراسي', 'من الصف المسجّل للطالب', 'صفوف Grade مجمّعة تحت «مدارس عالمية».'],
+  pkg: ['الباقات', 'نفس الأيام من كل شهر', 'متوسط الطلب، متوسط الساعات في الطلب، وسعر الساعة. لو سعر الساعة ثابت ومتوسط الطلب نازل يبقى الطلاب بيشتروا باقات أصغر مش بياخدوا خصم أكبر.'],
+  ilevel: ['مستوى الاهتمام', 'آخر حالة سجّلها السيلز، متجمّعة في مستويات', 'مهتم = «مهتم بالاشتراك في الباقات». متردد = مازال بيفكر، أو رد وطلب إعادة تواصل، أو متابعة واتساب، أو مكالمة خدمة، أو «رد». مش مهتم = غير مهتم أو غير محتاج حاليًا. مش مناسب = رقم غلط، أو معلّم سجّل بالغلط، أو جمعية. لسه ما اتعرفش = ما ردّش أو سكّر أو ما اتواصلش معاه أصلًا.'],
+  iconv: ['تحويل كل مستوى', 'دفعوا ÷ ليدز المستوى', 'بيوضّح هل تقييم السيلز للاهتمام بيطابق الدفع فعلًا. ليدز الفترة الأخيرة لسه ما خدتش وقتها، فالتحويل بيزيد بعدين. والحالة هي آخر حالة، فممكن تكون اتكتبت بعد الدفع.'],
+  rej: ['سبب الرفض', 'سبب آخر ريمارك للطالب', 'الطالب ممكن يتسجّل له أكتر من سبب، فمجموع الأسباب ممكن يعدّي عدد الطلاب. بيتحسب من آخر ريمارك بس، مش من أي ريمارك قديم.'],
+  role: ['مين اللي رد', 'آخر دور اتسجّل لمن رد على السيلز', 'بيشمل الليدز اللي ردّت فقط (يعني من غير «ما رد» ومن غير «ما اتواصلش معاه»). «ما اتسجّلش» يعني السيلز ما كتبش مين اللي رد.'],
+  subj: ['المواد وقت التسجيل', 'أول مواد اختارها الطالب في التسجيل', 'أول اختيار مواد مش فاضي من أي نوع طلب. الطالب ممكن يختار أكتر من مادة، فالمجموع بيعدّي عدد الطلاب. «ما اختارش مادة» = مفيش اختيار مسجّل.'],
+  partial: ['فترة جزئية', 'آخر يوم أو أسبوع أو شهر ممكن يكون ناقص', 'الفترة الأخيرة لسه شغالة، فأرقامها هتزيد. المقارنات بنفس الفترة بتتعامل مع ده تلقائيًا.'],
+};
+const inf = (k) => GL[k] ? '<span class="info" tabindex="0" data-tip="' + esc(GL[k][2]) + '">i</span>' : '';
+const gname = (k) => GL[k][0];
+const gline = (k) => GL[k][1];
+
+// ---------- data ----------
+let P = null; const T = {};
+const EMPTY = { n: 0, k: [[], [], [], []], m: [] };
+const grp = (g) => T[g] || EMPTY;
+function load(p) {
+  P = p;
+  for (const g of Object.keys(p.groups)) {
+    const x = p.groups[g]; const n = x.n;
+    const k = x.kd.map((c) => { if (!c) return new Array(n).fill(''); const o = new Array(n); for (let i = 0; i < n; i++) o[i] = c.d[c.v[i]]; return o; });
+    const m = new Array(NM);
+    for (let j = 0; j < NM; j++) m[j] = new Float64Array(n);
+    x.mi.forEach((idx, a) => { const col = x.m[a], dst = m[idx - 1]; for (let i = 0; i < n; i++) dst[i] = col[i] == null ? 0 : col[i]; });
+    T[g] = { n, k, m };
+  }
+}
+const DAYG = { core: 1, spd: 1, hr: 1, path: 1, gap: 1 };
+const WEEKG = { grade: 1, fail: 1, coh: 1, tm: 1, ag: 1, rj: 1, rl: 1, sj: 1 };
+const CHPOS = { core: 1, spd: 1, path: 1, gap: 1, grade: 1, fail: 1, coh: 1, rj: 1, rl: 1, sj: 1 };
+
+// ---------- state ----------
+const PRESETS = ['Today', 'Yesterday', 'Last 7 Days', 'Last 30 Days', 'Previous Month', 'Month to Date', 'Last 3 Months', 'Quarter to Date', 'Last 6 Months', 'Last 12 Months', 'Year to Date', 'Lifetime', 'Custom'];
+const S = { page: 'ov', preset: 'Lifetime', from: '', to: '', ch: new Set(), st: new Set(), tg: new Set(), grain: 'day', metric: 'rev', agMin: 100, agQ: '', agSort: 'p14', agDir: -1, agPage: 1, skew: 'conv' };
+let MIN = '', MAX = '';
+function range() {
+  const m = MAX; let f = MIN, t = MAX;
+  switch (S.preset) {
+    case 'Today': f = t = m; break;
+    case 'Yesterday': f = t = addD(m, -1); break;
+    case 'Last 7 Days': f = addD(m, -6); break;
+    case 'Last 30 Days': f = addD(m, -29); break;
+    case 'Previous Month': { const a = addM(som(m), -1); f = a; t = addD(som(m), -1); break; }
+    case 'Month to Date': f = som(m); break;
+    case 'Last 3 Months': f = addD(addM(m, -3), 1); break;
+    case 'Quarter to Date': f = addM(m.slice(0, 5) + String(Math.floor((+m.slice(5, 7) - 1) / 3) * 3 + 1).padStart(2, '0') + '-01', 0); break;
+    case 'Last 6 Months': f = addD(addM(m, -6), 1); break;
+    case 'Last 12 Months': f = addD(addM(m, -12), 1); break;
+    case 'Year to Date': f = m.slice(0, 4) + '-01-01'; break;
+    case 'Custom': f = S.from || MIN; t = S.to || MAX; break;
+  }
+  if (f < MIN) f = MIN; if (t > MAX) t = MAX; if (t < f) t = f;
+  return [f, t];
+}
+// row selection on a group with the shared filters. opt: {date, ch, st, tg}
+function sel(g, opt) {
+  const x = grp(g), ix = [], [f, t] = range();
+  const wf = sow(f), mf = som(f);
+  const one = S.ch.size === 1 ? [...S.ch][0] : null;
+  for (let i = 0; i < x.n; i++) {
+    const d = x.k[0][i];
+    if (opt.date) {
+      if (DAYG[g]) { if (d < f || d > t) continue; }
+      else if (WEEKG[g]) { if (d < wf || d > t) continue; }
+      else if (g === 'plat') { if (d < mf || d > t) continue; }
+    }
+    if (opt.ch && S.ch.size && CHPOS[g] && !S.ch.has(x.k[1][i])) continue;
+    if (opt.st && S.st.size && g === 'core' && !S.st.has(x.k[2][i])) continue;
+    if (opt.tg && S.tg.size && g === 'core' && !S.tg.has(x.k[3][i])) continue;
+    ix.push(i);
+  }
+  return ix;
+}
+function sum(g, ix) { const x = grp(g), a = new Float64Array(NM); for (let j = 0; j < NM; j++) { const c = x.m[j]; if (!c) continue; let s = 0; for (let q = 0; q < ix.length; q++) s += c[ix[q]]; a[j] = s; } return a; }
+// group-by one key column -> Map key -> sums
+function by(g, ix, keyFn) { const x = grp(g), mp = new Map(); for (const i of ix) { const k = keyFn(x, i); let a = mp.get(k); if (!a) { a = new Float64Array(NM); mp.set(k, a); } for (let j = 0; j < NM; j++) a[j] += x.m[j][i]; } return mp; }
+const FILT = { core: 'التاريخ، القناة، الحالة، التاج' };
+
+// ---------- charts ----------
+const nice = (v) => { if (!(v > 0)) return 1; const e = Math.pow(10, Math.floor(Math.log10(v))), f = v / e; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * e; };
+function barSvg(labels, vals, ft, color, notes, W) {
+  W = W || 520; const H = 260, L = 46, R = 10, T0 = 16, B = 44, pw = W - L - R, ph = H - T0 - B, n = vals.length;
+  if (!n) return '<div class="note">مفيش داتا للفلاتر دي.</div>';
+  const mx = nice(Math.max.apply(null, vals.map((v) => v || 0)) * 1.12), st = pw / n; let o = '<svg viewBox="0 0 ' + W + ' ' + H + '" class="svgc">';
+  for (let i = 0; i <= 4; i++) { const y = T0 + ph - ph * i / 4; o += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y + '" y2="' + y + '" class="gl"/><text x="' + (L - 6) + '" y="' + (y + 4) + '" text-anchor="end" class="ax">' + ft(mx * i / 4) + '</text>'; }
+  vals.forEach((v, i) => {
+    const x = W - R - (i + 1) * st + st * .18, bw = st * .64, h = (v || 0) / mx * ph;
+    o += '<rect x="' + x.toFixed(1) + '" y="' + (T0 + ph - h).toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + h.toFixed(1) + '" rx="4" fill="' + color + '"><title>' + esc(labels[i]) + ': ' + ft(v || 0) + '</title></rect>';
+    o += '<text x="' + (x + bw / 2).toFixed(1) + '" y="' + (T0 + ph - h - 5).toFixed(1) + '" text-anchor="middle" class="vt">' + ft(v || 0) + '</text>';
+    o += '<text x="' + (x + bw / 2).toFixed(1) + '" y="' + (H - 24) + '" text-anchor="middle" class="ax">' + esc(labels[i]) + '</text>';
+    if (notes) o += '<text x="' + (x + bw / 2).toFixed(1) + '" y="' + (H - 10) + '" text-anchor="middle" class="ax2">' + esc(notes[i]) + '</text>';
+  });
+  return o + '</svg>';
+}
+function trendSvg(pts, metric, grain) {
+  if (!pts.length) return '<div class="note">مفيش داتا للفلاتر دي.</div>';
+  const W = 920, H = 300, L = 46, R = 58, T0 = 14, B = 30, pw = W - L - R, ph = H - T0 - B, n = pts.length, st = pw / n;
+  const val = (p) => metric === 'rev' ? p.rev : metric === 'paid' ? p.paid : (p.leads ? p.paid / p.leads : 0);
+  const col = metric === 'rev' ? '#7c3aed' : metric === 'paid' ? '#FF6A00' : '#059669';
+  const ft = (v) => metric === 'rev' ? kf(v) : metric === 'paid' ? fmt(v) : (v * 100).toFixed(1) + '%';
+  const mxL = nice(Math.max.apply(null, pts.map((p) => p.leads)) * 1.05), mxR = nice(Math.max.apply(null, pts.map(val)) * 1.1) || 1;
+  let o = '<svg viewBox="0 0 ' + W + ' ' + H + '" class="svgc">';
+  for (let i = 0; i <= 4; i++) { const y = T0 + ph - ph * i / 4; o += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y + '" y2="' + y + '" class="gl"/><text x="' + (W - R + 6) + '" y="' + (y + 4) + '" class="ax" fill="' + col + '">' + ft(mxR * i / 4) + '</text><text x="' + (L - 6) + '" y="' + (y + 4) + '" text-anchor="end" class="ax bl">' + kf(mxL * i / 4) + '</text>'; }
+  const xs = (i) => W - R - (i + 0.5) * st;
+  pts.forEach((p, i) => { const h = p.leads / mxL * ph; o += '<rect x="' + (xs(i) - st * .32).toFixed(1) + '" y="' + (T0 + ph - h).toFixed(1) + '" width="' + (st * .64).toFixed(1) + '" height="' + h.toFixed(1) + '" class="bar"/>'; });
+  o += '<polyline fill="none" stroke="' + col + '" stroke-width="2.4" points="' + pts.map((p, i) => xs(i).toFixed(1) + ',' + (T0 + ph - val(p) / mxR * ph).toFixed(1)).join(' ') + '"/>';
+  if (n <= 200) pts.forEach((p, i) => { o += '<rect x="' + (xs(i) - st / 2).toFixed(1) + '" y="' + T0 + '" width="' + st.toFixed(1) + '" height="' + ph + '" fill="transparent"><title>' + esc((grain === 'month' ? monName(p.k) : p.k) + ' · ليدز ' + fmt(p.leads) + ' · دفعوا ' + fmt(p.paid) + ' (' + pct(dv(p.paid, p.leads)) + ') · إيراد ' + fmt(p.rev)) + '</title></rect>'; });
+  const every = Math.max(1, Math.ceil(n / 10));
+  pts.forEach((p, i) => { if (i % every === 0) o += '<text x="' + xs(i).toFixed(1) + '" y="' + (H - 10) + '" text-anchor="middle" class="ax">' + (grain === 'month' ? MON[+p.k.slice(5, 7) - 1] : dm(p.k)) + '</text>'; });
+  return o + '</svg>';
+}
+function fplotSvg(pts, vbar, xmax) {
+  const W = 640, H = 370, L = 52, R = 14, T0 = 14, B = 40, pw = W - L - R, ph = H - T0 - B;
+  if (!pts.length) return '<div class="note">مفيش سيلز بحد أدنى الليدز ده.</div>';
+  const lim = (z, n) => z * Math.sqrt(vbar / n) * 100;
+  let ym = 2; for (const p of pts) ym = Math.max(ym, Math.abs(p.y)); ym = Math.min(Math.max(ym, lim(3.09, Math.max(30, xmax / 8))), 12); ym = Math.ceil(ym);
+  const X = (n) => L + n / xmax * pw, Y = (v) => T0 + ph / 2 - Math.max(-ym, Math.min(ym, v)) / ym * ph / 2;
+  let o = '<svg viewBox="0 0 ' + W + ' ' + H + '" class="svgc">';
+  for (let v = -ym; v <= ym; v += Math.max(1, Math.round(ym / 3))) o += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + Y(v) + '" y2="' + Y(v) + '" class="gl"/><text x="' + (L - 6) + '" y="' + (Y(v) + 4) + '" text-anchor="end" class="ax">' + (v > 0 ? '+' : '') + v + '</text>';
+  o += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + Y(0) + '" y2="' + Y(0) + '" stroke="#555" stroke-width="1.2"/>';
+  for (const [z, cls] of [[1.96, 'cl95'], [3.09, 'cl99']]) for (const sg of [1, -1]) { const q = []; for (let n = Math.max(20, xmax / 60); n <= xmax; n += xmax / 60) q.push(X(n).toFixed(1) + ',' + Y(sg * lim(z, n)).toFixed(1)); o += '<polyline points="' + q.join(' ') + '" class="' + cls + '"/>'; }
+  for (let i = 0; i <= 4; i++) o += '<text x="' + (L + pw * i / 4) + '" y="' + (H - 22) + '" text-anchor="middle" class="ax">' + fmt(xmax * i / 4) + '</text>';
+  for (const p of pts) { const c = p.z > 1.96 ? '#FF6A00' : p.z < -1.96 ? '#D93B30' : '#9aa3ad'; o += '<circle cx="' + X(p.x).toFixed(1) + '" cy="' + Y(p.y).toFixed(1) + '" r="' + (Math.abs(p.z) > 1.96 ? 4.4 : 3.2) + '" fill="' + c + '" fill-opacity="' + (Math.abs(p.z) > 1.96 ? .95 : .55) + '" stroke="#fff" stroke-width=".8"><title>' + esc(p.name + ' · ليدز ' + fmt(p.x) + ' · دفعوا ' + fmt(p.p14) + ' (المتوقع ' + p.exp.toFixed(1) + ') · الفرق ' + (p.y > 0 ? '+' : '') + p.y.toFixed(1) + ' نقطة') + '</title></circle>'; }
+  o += '<text x="' + (L + pw / 2) + '" y="' + (H - 4) + '" text-anchor="middle" class="axt">عدد الليدز (ناضجة 14 يوم)</text><text transform="translate(12,' + (T0 + ph / 2) + ') rotate(-90)" text-anchor="middle" class="axt">الفرق عن المتوقع (نقطة مئوية)</text>';
+  return o + '</svg>';
+}
+
+window.__F = { NM, $, fmt, pct, dv, kf, esc, hrs, iso, pd, addD, addM, sow, som, dm, MON, monName, CHL, chl, EST, SPB, GPB, SLOT, RJL, RLL, SJL, LVN, lvOf, pathLbl, GL, inf, gname, gline, load, T, grp, S, PRESETS, range, sel, sum, by, barSvg, trendSvg, fplotSvg, nice,
+  setMinMax: (a, b) => { MIN = a; MAX = b; }, getP: () => P, minmax: () => [MIN, MAX] };
+})();
+
+/* Faheem leads dashboard - part 2: pages, rendering, events. */
+(function () {
+'use strict';
+const F = window.__F;
+const { $, fmt, pct, dv, kf, esc, hrs, pd, addD, sow, som, dm, MON, monName, chl, EST, SPB, GPB, SLOT, RJL, RLL, SJL, LVN, lvOf, pathLbl, GL, inf, gname, gline, T, grp, S, PRESETS, range, sel, sum, by, barSvg, trendSvg, fplotSvg } = F;
+const O = '#FF6A00';
+let CHS = [], STS = [], TGS = [], ASOF = '', STALE = '', OPEN = null;
+
+const PAGES = [['ov', 'نظرة عامة', ''], ['sales', '★ السيلز', 'الأهم'], ['spd', 'السرعة والتوقيت', ''], ['fun', 'المسار والكوهورت', ''], ['ch', 'القنوات', ''], ['int', 'الاهتمام ونوعه', ''], ['stu', 'الطلاب والباقات', ''], ['def', 'التعريفات وصحة الداتا', '']];
+const TITLES = { ov: ['نظرة عامة على مسار الليدز', 'طلاب سعوديين · نشطين · بدون كفيل'], sales: ['السيلز ★', 'أداء الفريق: السرعة، الرد، الحجز، التحويل، ومين محتاج متابعة'], spd: ['السرعة والتوقيت', 'أول تواصل، وقت التسجيل، وميعاد الحصة التجريبية'], fun: ['المسار والكوهورت', 'الطالب بيمشي إزاي من التسجيل للدفع'], ch: ['القنوات', 'أداء كل قناة على طول المسار'], int: ['الاهتمام ونوعه', 'الطالب مهتم قد إيه، وليه رفض، ومين اللي رد، وكان عايز مواد إيه'], stu: ['الطلاب والباقات', 'مين بيشتري، وبيشتري إيه'], def: ['التعريفات وصحة الداتا', 'كل رقم في الداشبورد معناه إيه، والداتا سليمة ولا لأ'] };
+const FNOTE = {
+  ov: 'كل الفلاتر شغالة. «تواصل خلال ساعة» بيتحسب بالتاريخ والقناة بس. المقارنة بنفس الفترة بتتأثر بالقناة (لو اخترت قناة واحدة) فقط.',
+  sales: 'الفلاتر المتاحة هنا: التاريخ (بيتقرّب لبداية الأسبوع، الأسبوع من الأحد). القناة والحالة والتاج مش متاحين لجدول السيلز.',
+  spd: 'التاريخ والقناة بيأثروا على السرعة وميعاد الحصة. الـ Heatmap بالتاريخ بس. وقت التسجيل بيتحسب بالأسبوع (بيتقرّب للأسبوع).',
+  fun: 'التاريخ والقناة. الحالة والتاج بيأثروا على جدول «آخر حالة» بس. الكوهورت والأوقات أسبوعية.',
+  ch: 'التاريخ والقناة (القنوات المختارة بس بتظهر). جدول المنصة شهري.',
+  int: 'مستوى الاهتمام بيتأثر بالتاريخ والقناة. الأسباب ومين رد والمواد أسبوعية، وبالتاريخ والقناة بس (مش بالحالة ولا التاج).',
+  stu: 'التاريخ والقناة. التاريخ بيتقرّب للأسبوع. جدول الباقات ثابت: آخر 3 شهور بنفس الأيام.',
+  def: '',
+};
+
+// ---------- small html helpers ----------
+const kb = (cls, k, v, s2) => '<div class="card kb ' + cls + '"><div class="l">' + gname(k) + inf(k) + '</div><div class="v">' + v + '</div><div class="s2">' + (s2 || gline(k)) + '</div></div>';
+const ks = (k, v, s2, nm) => '<div class="card ks"><div class="l">' + (nm || gname(k)) + inf(k) + '</div><div class="v">' + v + '</div><div class="s2">' + (s2 || gline(k)) + '</div></div>';
+const empty = () => '<div class="card pn"><div class="note">مفيش داتا للفلاتر دي. جرّب تغيّر التاريخ أو القناة.</div></div>';
+const head = (t, k, sub) => '<div class="phead"><h3>' + t + (k ? inf(k) : '') + '</h3></div>' + (sub ? '<div class="note l1">' + sub + '</div>' : '');
+const th = (h) => '<th>' + h + '</th>';
+function tbl(heads, rows, cls) { return '<div class="tw"><table class="' + (cls || '') + '"><thead><tr>' + heads.map(th).join('') + '</tr></thead><tbody>' + rows.map((r) => '<tr>' + r.map((c) => '<td>' + c + '</td>').join('') + '</tr>').join('') + '</tbody></table></div>'; }
+const bar = (v, mx) => '<div class="tb"><i style="width:' + Math.max(2, mx ? v / mx * 100 : 0).toFixed(0) + '%"></i></div>';
+const chip = (t, c) => '<span class="chip ' + (c || '') + '">' + t + '</span>';
+const explain = (items) => '<details class="explain"><summary>فهّمني الصفحة دي</summary><ul>' + items.map((i) => '<li><b>' + i[0] + '</b> — ' + i[1] + '</li>').join('') + '</ul></details>';
+const fmtD = (s) => s;
+function top5(title, items, val, fv) { const mx = items.length ? val(items[0]) : 0; return '<div class="card tcard"><h3>' + title + '</h3>' + items.map((i) => '<div class="trow"><div class="tl"><span class="nm">' + chl(i.ch) + '</span><b>' + fv(i) + '</b></div>' + bar(val(i), mx) + '</div>').join('') + '</div>'; }
+function chRows(ix, g) { const mp = by(g || 'core', ix, (x, i) => x.k[1][i]); return [...mp.entries()].map(([ch, a]) => ({ ch, a, leads: a[0], paid: a[6], rev: a[7], mat: a[8], p14: a[9] })); }
+
+// ---------- OVERVIEW ----------
+function pOv() {
+  const ix = sel('core', { date: 1, ch: 1, st: 1, tg: 1 }); if (!ix.length) return empty();
+  const a = sum('core', ix), [f, t] = range();
+  const L = a[0], paid = a[6], rev = a[7];
+  const ix2 = sel('spd', { date: 1, ch: 1 }), sp = by('spd', ix2, (x, i) => x.k[2][i]);
+  let within = 0, contacted = 0; for (const [k, v] of sp) { if (k !== '7') contacted += v[0]; if (k === '0' || k === '1' || k === '2') within += v[0]; }
+  // highlights
+  const chs = chRows(ix).filter((r) => r.leads >= 1000 && r.mat > 0);
+  chs.sort((x, y) => y.p14 / y.mat - x.p14 / x.mat);
+  const hl = [];
+  hl.push(['الصورة العامة', fmt(L) + ' ليد من ' + f + ' لحد ' + t + '، دفع منهم ' + fmt(paid) + ' (' + pct(dv(paid, L)) + ') بإيراد ' + kf(rev) + ' ريال. متوسط العملية ' + fmt(dv(rev, paid)) + ' ريال.']);
+  if (chs.length >= 2) hl.push(['أحسن وأضعف قناة جودة', chl(chs[0].ch) + ' أعلى تحويل خلال 14 يوم (' + pct(chs[0].p14 / chs[0].mat) + ')، و' + chl(chs[chs.length - 1].ch) + ' أقل واحدة (' + pct(chs[chs.length - 1].p14 / chs[chs.length - 1].mat) + ') ومعاها ' + fmt(chs[chs.length - 1].leads) + ' ليد. (قنوات فيها +1000 ليد)']);
+  const mcr = mcRows(); if (mcr.length >= 2) { const c = mcr[mcr.length - 1], p = mcr[mcr.length - 2]; hl.push(['الشهر الحالي مقابل اللي قبله بنفس الفترة', monName(c.m) + ': ' + fmt(c.a[0]) + ' ليد بتحويل ' + pct(dv(c.a[10], c.a[0])) + '، مقابل ' + monName(p.m) + ': ' + fmt(p.a[0]) + ' ليد بتحويل ' + pct(dv(p.a[10], p.a[0])) + '. (من أول الشهر لنفس اليوم والساعة)']); }
+  // trend
+  const kfn = S.grain === 'day' ? (d) => d : S.grain === 'week' ? sow : som;
+  const tm = by('core', ix, (x, i) => kfn(x.k[0][i]));
+  const pts = [...tm.entries()].sort((x, y) => x[0] < y[0] ? -1 : 1).map(([k, v]) => ({ k, leads: v[0], paid: v[6], rev: v[7] }));
+  // tops
+  const rows = chRows(ix).sort((x, y) => y.rev - x.rev);
+  const t1 = rows.slice(0, 5), t2 = rows.filter((r) => r.leads >= 1000 && r.mat > 0).sort((x, y) => y.p14 / y.mat - x.p14 / x.mat).slice(0, 5), t3 = rows.filter((r) => r.leads >= 300).sort((x, y) => y.rev / y.leads - x.rev / x.leads).slice(0, 5);
+  const cmp = mcTable();
+  const fun = [['ليدز سجّلت', a[0]], ['اتواصل معاهم', a[1]], ['ردّوا على السيلز', a[2]], ['حجزوا تجريبية', a[3]], ['حضروا تجريبية', a[4]], ['دخلوا صفحة الدفع', a[5]], ['دفعوا', a[6]]];
+  return '<div class="hls">' + hl.map((h) => '<div class="hl"><b>' + h[0] + '</b><p>' + h[1] + '</p></div>').join('') + '</div>'
+    + '<div class="kbig">' + kb('o', 'revenue', kf(rev), fmt(rev)) + kb('g', 'paid', fmt(paid), 'تحويل كلي ' + pct(dv(paid, L))) + kb('b', 'leads', kf(L), fmt(L) + ' ليد') + kb('s', 'aov', fmt(dv(rev, paid)), gline('aov')) + '</div>'
+    + '<div class="ksm">' + ks('answered', pct(dv(a[2], L))) + ks('booked', pct(dv(a[3], L))) + ks('attended', pct(dv(a[4], a[3]))) + ks('entered', pct(dv(a[5], L)), 'من كل الليدز') + ks('rpl', fmt(dv(rev, L)), 'ريال') + ks('c1h', pct(dv(within, contacted)), 'من اللي اتواصل معاهم') + '</div>'
+    + '<div class="row2"><div class="card pn">' + head('المسار (من الليدز)') + fun.map((r) => '<div class="frow"><span>' + r[0] + '</span><div class="fb"><i style="width:' + (dv(r[1], L) * 100).toFixed(1) + '%"></i></div><b>' + fmt(r[1]) + '</b><small>' + pct(dv(r[1], L)) + '</small></div>').join('') + '<div class="note">المراحل مش متتالية بالكامل. المسار التفصيلي في صفحة «المسار والكوهورت».</div></div>'
+    + '<div class="card pn"><div class="phead"><h3>الليدز والإيراد</h3><div class="ctl">' + pills('metric', [['rev', 'الإيراد'], ['paid', 'الدافعين'], ['conv', 'التحويل']], S.metric) + pills('grain', [['day', 'يومي'], ['week', 'أسبوعي'], ['month', 'شهري']], S.grain) + '</div></div>'
+    + '<div class="leg"><span><i style="background:#2563eb;opacity:.4"></i>ليدز (يسار)</span><span><i style="background:#7c3aed"></i>الخط (يمين)</span></div>' + trendSvg(pts, S.metric, S.grain)
+    + '<div class="note">الإيراد والدفع منسوبين لتاريخ تسجيل الليد. آخر ' + (S.grain === 'day' ? 'يوم' : S.grain === 'week' ? 'أسبوع' : 'شهر') + ' ممكن يكون جزئي وأرقامه هتزيد.' + inf('partial') + '</div></div></div>'
+    + '<div class="tops">' + top5('أعلى 5 قنوات بالإيراد', t1, (r) => r.rev, (r) => kf(r.rev)) + top5('أعلى 5 بتحويل 14 يوم (+1000 ليد)', t2, (r) => r.p14 / r.mat, (r) => pct(r.p14 / r.mat)) + top5('أعلى 5 بإيراد الليد (+300 ليد)', t3, (r) => r.rev / r.leads, (r) => fmt(r.rev / r.leads)) + '</div>'
+    + '<div class="row11"><div class="card pn">' + head('القنوات (ملخص)', 'channel') + tbl(['القناة', 'ليدز', 'دفعوا', 'تحويل', 'إيراد', 'إيراد/ليد'], rows.map((r) => [chl(r.ch) + (EST[r.ch] ? ' ' + chip('تقديري', 'p') : ''), fmt(r.leads), fmt(r.paid), pct(dv(r.paid, r.leads)), fmt(r.rev), fmt(dv(r.rev, r.leads))])) + '</div><div class="card pn">' + head('مقارنة بنفس الفترة من الشهور', 'samep', 'كل شهر من أوله لنفس اليوم والساعة من الشهر الحالي') + cmp + '</div></div>';
+}
+function pills(key, items, cur) { return '<div class="pills">' + items.map((i) => '<button data-set="' + key + '" data-v="' + i[0] + '" class="' + (cur === i[0] ? 'on' : '') + '">' + i[1] + '</button>').join('') + '</div>'; }
+function mcRows() {
+  const x = grp('mc'), want = S.ch.size === 1 ? [...S.ch][0] : 'ALL', o = [];
+  for (let i = 0; i < x.n; i++) if (x.k[1][i] === want) { const a = new Float64Array(F.NM); for (let j = 0; j < F.NM; j++) a[j] = x.m[j][i]; o.push({ m: x.k[0][i], a }); }
+  return o.sort((p, q) => p.m < q.m ? -1 : 1);
+}
+function mcTable() {
+  const r = mcRows(); if (!r.length) return '<div class="note">مفيش داتا.</div>';
+  return tbl(['الفترة', 'ليدز', 'رد%', 'حجز%', 'دفعوا', 'تحويل', 'إيراد', 'إيراد/ليد'], r.map((q) => [monName(q.m), fmt(q.a[0]), pct(dv(q.a[14], q.a[0])), pct(dv(q.a[15], q.a[0])), fmt(q.a[10]), pct(dv(q.a[10], q.a[0])), fmt(q.a[11]), fmt(dv(q.a[11], q.a[0]))]));
+}
+
+// ---------- SALES ----------
+function agents() {
+  const ix = sel('ag', { date: 1 }), x = grp('ag'), mp = new Map();
+  for (const i of ix) {
+    const id = x.k[1][i]; let a = mp.get(id);
+    if (!a) { a = { id, name: x.k[2][i] || 'غير موزّع', s: new Float64Array(F.NM), fw: 0, fn: 0 }; mp.set(id, a); }
+    for (let j = 0; j < F.NM; j++) a.s[j] += x.m[j][i];
+    const n = x.m[18][i], m = x.m[19][i]; if (n > 0 && m >= 0) { a.fw += n * m; a.fn += n; }
+  }
+  return [...mp.values()].map((a) => {
+    const s = a.s, mat = s[8], p14 = s[9], exp = s[15], vr = s[16];
+    const z = vr > 0 ? (p14 - exp) / Math.sqrt(vr) : 0;
+    const badge = mat < 100 ? 'عيّنة صغيرة' : z > 1.96 ? 'فوق المتوقع' : z < -1.96 ? 'تحت المتوقع' : 'في المتوقع';
+    return { id: a.id, name: a.name, leads: s[0], mat, ansR: dv(s[11], mat), bkR: dv(s[12], mat), attR: dv(s[13], s[12]), p14, conv: dv(p14, mat), exp, vr, diff: mat ? (p14 - exp) / mat * 100 : 0, rev: s[14], fc: a.fn ? a.fw / a.fn : -1, unc3: s[17], z, badge, s };
+  });
+}
+const BADGE = { 'فوق المتوقع': 'up', 'تحت المتوقع': 'dn', 'في المتوقع': '', 'عيّنة صغيرة': 'p' };
+function pSales() {
+  const all = agents(); if (!all.length) return empty();
+  const real = all.filter((a) => a.id !== '0'), ev = real.filter((a) => a.mat >= 100);
+  const sm = (k, arr) => arr.reduce((s, a) => s + a.s[k], 0);
+  const mat = sm(8, real), p14 = sm(9, real);
+  const up = ev.filter((a) => a.badge === 'فوق المتوقع'), dn = ev.filter((a) => a.badge === 'تحت المتوقع');
+  const byDiff = ev.slice().sort((a, b) => b.diff - a.diff);
+  const unc = all.reduce((s, a) => s + a.unc3, 0), unassigned = all.filter((a) => a.id === '0').reduce((s, a) => s + a.leads, 0);
+  const [f, t] = range(); const fcw = real.reduce((s, a) => s + (a.fc >= 0 ? a.fc * a.s[18] : 0), 0), fcn = real.reduce((s, a) => s + (a.fc >= 0 ? a.s[18] : 0), 0);
+  const hl = [];
+  hl.push(['الفروق بين السيلز', ev.length ? 'من ' + ev.length + ' سيلز عندهم 100 ليد ناضج أو أكتر: ' + up.length + ' فوق المتوقع بوضوح و' + dn.length + ' تحته. الباقي في حدود الصدفة.' : 'مفيش سيلز عنده 100 ليد ناضج في الفترة دي.']);
+  if (byDiff.length >= 2) hl.push(['أعلى وأقل أداء فعلي', byDiff[0].name + ': دفع ' + fmt(byDiff[0].p14) + ' من ' + fmt(byDiff[0].mat) + ' مقابل ' + byDiff[0].exp.toFixed(1) + ' متوقع. وأقل واحد ' + byDiff[byDiff.length - 1].name + ': ' + fmt(byDiff[byDiff.length - 1].p14) + ' مقابل ' + byDiff[byDiff.length - 1].exp.toFixed(1) + '.']);
+  hl.push(['ليدز مستنية من غير تواصل', fmt(unc) + ' ليد ما اتواصلش معاهم وأقدم من 3 ساعات في الفترة المختارة' + (unassigned ? '، منهم ' + fmt(unassigned) + ' ما اتوزّعوش على سيلز.' : '.')]);
+  // funnel plot
+  const pl = ev.filter((a) => a.mat >= S.agMin).map((a) => ({ name: a.name, x: a.mat, y: a.diff, z: a.z, p14: a.p14, exp: a.exp }));
+  const vbar = dv(pl.reduce((s, p) => s + ev.find((a) => a.name === p.name).vr, 0), pl.reduce((s, p) => s + p.x, 0)) || 0.04;
+  const xmax = F.nice(Math.max.apply(null, [100].concat(pl.map((p) => p.x))) * 1.05);
+  const sc = ev.filter((a) => a.fc >= 0 && a.fc <= 48 * 60).map((a) => ({ name: a.name, x: a.fc / 60, y: a.conv }));
+  const corr = pearson(sc.map((p) => p.x), sc.map((p) => p.y));
+  return '<div class="hls">' + hl.map((h) => '<div class="hl"><b>' + h[0] + '</b><p>' + h[1] + '</p></div>').join('') + '</div>'
+    + '<div class="ksm k8">' + ks('badge', fmt(ev.length), 'عندهم 100 ليد ناضج أو أكتر', 'سيلز مقيَّمين') + ks('leads', fmt(dv(sm(8, ev), ev.length)), 'متوسط الليدز الناضجة للسيلز المقيَّم', 'ليدز لكل سيلز') + ks('answered', pct(dv(sm(11, real), mat)), 'ردّوا ÷ الليدز الناضجة') + ks('conv14', pct(dv(p14, mat))) + ks('booked', pct(dv(sm(12, real), mat)), 'حجزوا ÷ الليدز الناضجة') + ks('attended', pct(dv(sm(13, real), sm(12, real)))) + ks('waiting', fmt(unc), 'أقدم من 3 ساعات') + ks('fc', hrs(dv(fcw, fcn)), 'متوسط مرجّح لوسيط الأسابيع') + '</div>'
+    + '<div class="row11"><div class="card pn">' + head('Funnel plot: الفرق عن المتوقع', 'fplot') + '<div class="leg"><span><i style="background:#FF6A00"></i>فوق المتوقع</span><span><i style="background:#D93B30"></i>تحت المتوقع</span><span><i style="background:#9aa3ad"></i>في حدود الصدفة</span></div>' + fplotSvg(pl, vbar, xmax) + '<div class="note">الحدود: 95% و99.8%. المتوقع = تحويل 14 يوم المعتاد لنفس القناة ونفس فترة التسجيل.' + inf('expected') + '</div></div>'
+    + '<div class="card pn">' + head('سرعة أول تواصل مقابل التحويل', 'fc') + scatterSvg(sc) + '<div class="note">الارتباط ' + (corr == null ? '—' : corr.toFixed(2)) + ': ' + (corr == null ? '' : corr < -0.4 ? 'السيلز الأسرع تحويلهم أعلى بوضوح.' : corr < 0 ? 'السيلز الأسرع تحويلهم أعلى شوية لكن العلاقة ضعيفة.' : 'مفيش علاقة واضحة بين السرعة والتحويل.') + '</div></div></div>'
+    + '<div class="card pn"><div class="phead"><h3>جدول السيلز</h3><div class="ctl"><label>حد أدنى للليدز</label><input class="n" id="agMin" type="number" value="' + S.agMin + '"/><input id="agQ" placeholder="بحث باسم السيلز…" value="' + esc(S.agQ) + '"/></div></div><div id="agBox">' + agTable(all) + '</div><div class="note">الليد بيتنسب لأول سيلز اتوزّع عليه، حتى لو اتنقل لغيره. التحويل = دفع خلال 14 يوم من التسجيل، لليدز اللي عدّى عليها 14 يوم. أسماء السيلز هنا لازم تفضل مقيّدة بمستخدمين محددين.</div></div>';
+}
+function pearson(x, y) { const n = x.length; if (n < 3) return null; const mx = x.reduce((a, b) => a + b, 0) / n, my = y.reduce((a, b) => a + b, 0) / n; let sxy = 0, sxx = 0, syy = 0; for (let i = 0; i < n; i++) { sxy += (x[i] - mx) * (y[i] - my); sxx += (x[i] - mx) ** 2; syy += (y[i] - my) ** 2; } return sxx && syy ? sxy / Math.sqrt(sxx * syy) : null; }
+function scatterSvg(pts) {
+  if (!pts.length) return '<div class="note">مفيش سيلز مقيَّمين.</div>'; const W = 520, H = 340, L = 46, R = 14, T0 = 14, B = 40, pw = W - L - R, ph = H - T0 - B;
+  const ymax = F.nice(Math.max.apply(null, pts.map((p) => p.y)) * 1.1) || 0.1, X = (h) => L + h / 48 * pw, Y = (v) => T0 + ph - v / ymax * ph;
+  let o = '<svg viewBox="0 0 ' + W + ' ' + H + '" class="svgc">';
+  for (let i = 0; i <= 4; i++) o += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + Y(ymax * i / 4) + '" y2="' + Y(ymax * i / 4) + '" class="gl"/><text x="' + (L - 6) + '" y="' + (Y(ymax * i / 4) + 4) + '" text-anchor="end" class="ax">' + (ymax * i / 4 * 100).toFixed(0) + '%</text>';
+  for (let h = 0; h <= 48; h += 12) o += '<text x="' + X(h) + '" y="' + (H - 22) + '" text-anchor="middle" class="ax">' + h + 'س</text>';
+  for (const p of pts) o += '<circle cx="' + X(p.x).toFixed(1) + '" cy="' + Y(p.y).toFixed(1) + '" r="3.6" fill="' + O + '" fill-opacity=".55" stroke="#fff" stroke-width=".8"><title>' + esc(p.name + ' · أول تواصل ' + p.x.toFixed(1) + ' ساعة · تحويل ' + pct(p.y)) + '</title></circle>';
+  return o + '<text x="' + (L + pw / 2) + '" y="' + (H - 4) + '" text-anchor="middle" class="axt">وسيط أول تواصل (ساعة، الأقصى 48)</text><text transform="translate(12,' + (T0 + ph / 2) + ') rotate(-90)" text-anchor="middle" class="axt">التحويل خلال 14 يوم</text></svg>';
+}
+const AGC = [['name', 'السيلز', null], ['mat', 'ليدز ناضجة', null], ['ansR', 'رد%', null], ['bkR', 'حجز%', null], ['attR', 'حضور%', null], ['conv', 'دفع 14 يوم', 'conv14'], ['exp', 'المتوقع', 'expected'], ['diff', 'الفرق (نقطة)', null], ['rev', 'إيراد', null], ['fc', 'أول تواصل', 'fc'], ['unc3', 'مستنية', 'waiting'], ['z', 'التقييم', 'badge']];
+function agTable(all) {
+  all = all || agents(); const q = S.agQ.trim().toLowerCase();
+  let rows = all.filter((a) => a.mat >= S.agMin && (!q || a.name.toLowerCase().includes(q)));
+  const k = S.agSort, d = S.agDir; rows.sort((a, b) => { const x = k === 'name' ? a.name : (a[k] == null ? -1e9 : a[k]), y = k === 'name' ? b.name : (b[k] == null ? -1e9 : b[k]); return (x < y ? -1 : x > y ? 1 : 0) * d; });
+  const per = 10, pages = Math.max(1, Math.ceil(rows.length / per)); if (S.agPage > pages) S.agPage = pages; const sl = rows.slice((S.agPage - 1) * per, S.agPage * per);
+  const hd = AGC.map((c) => '<th class="s' + (S.agSort === c[0] ? ' sorted' : '') + '" data-sort="' + c[0] + '">' + c[1] + (c[2] ? inf(c[2]) : '') + (S.agSort === c[0] ? (S.agDir < 0 ? ' ▼' : ' ▲') : '') + '</th>').join('');
+  const body = sl.map((a) => '<tr><td>' + esc(a.name) + '</td><td>' + fmt(a.mat) + '</td><td>' + pct(a.ansR) + '</td><td>' + pct(a.bkR) + '</td><td>' + pct(a.attR) + '</td><td>' + pct(a.conv) + '</td><td>' + a.exp.toFixed(1) + '</td><td>' + (a.diff > 0 ? '+' : '') + a.diff.toFixed(1) + '</td><td>' + fmt(a.rev) + '</td><td>' + hrs(a.fc) + '</td><td>' + fmt(a.unc3) + '</td><td>' + chip(a.badge, BADGE[a.badge]) + '</td></tr>').join('');
+  let pg = ''; for (let i = 1; i <= pages && i <= 12; i++) pg += '<button data-pg="' + i + '" class="' + (i === S.agPage ? 'on' : '') + '">' + i + '</button>';
+  return '<div class="tw"><table><thead><tr>' + hd + '</tr></thead><tbody>' + body + '</tbody></table></div><div class="pager"><span class="pinfo">' + fmt(rows.length) + ' سيلز (بحد أدنى ' + S.agMin + ' ليد ناضج)</span><div class="pbtns">' + pg + '</div></div>';
+}
+
+// ---------- SPEED ----------
+function heat(cells, mode) {
+  const ord = [0, 1, 2, 3, 4, 5, 6], AR = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+  let mx = 0, mn = 1e9; for (const c of cells.values()) { if (mode === 'vol') mx = Math.max(mx, c.l); else if (c.l >= 300 && c.m > 0) { const v = c.p / c.m; mx = Math.max(mx, v); mn = Math.min(mn, v); } }
+  let h = '<table class="hm"><thead><tr><th></th>' + Array.from({ length: 24 }, (_, i) => '<th>' + i + '</th>').join('') + '</tr></thead><tbody>';
+  for (const d of ord) { h += '<tr><th>' + AR[d] + '</th>'; for (let hr = 0; hr < 24; hr++) { const c = cells.get(d + '|' + hr); if (!c) { h += '<td class="na">·</td>'; continue; } if (mode === 'vol') { h += '<td style="background:rgba(255,106,0,' + (0.08 + 0.85 * c.l / (mx || 1)).toFixed(2) + ')" title="' + fmt(c.l) + ' ليد">' + (c.l >= 1000 ? Math.round(c.l / 100) / 10 + 'k' : c.l) + '</td>'; } else { if (c.l < 300 || !c.m) { h += '<td class="na">·</td>'; continue; } const v = c.p / c.m; h += '<td style="background:rgba(5,150,105,' + (0.1 + 0.8 * (v - mn) / ((mx - mn) || 1)).toFixed(2) + ')" title="' + pct(v) + '">' + (v * 100).toFixed(1) + '</td>'; } } h += '</tr>'; }
+  return h + '</tbody></table>';
+}
+function pSpd() {
+  const ix = sel('spd', { date: 1, ch: 1 }); if (!ix.length) return empty();
+  const sp = by('spd', ix, (x, i) => x.k[2][i]); const rows = [...sp.entries()].sort((a, b) => +a[0] - +b[0]);
+  const convs = rows.map(([k, a]) => dv(a[9], a[8]) || 0);
+  const hix = sel('hr', { date: 1 }), hx = grp('hr'), cells = new Map();
+  for (const i of hix) { const d = pd(hx.k[0][i]).getUTCDay(), key = d + '|' + hx.k[1][i]; let c = cells.get(key); if (!c) { c = { l: 0, m: 0, p: 0 }; cells.set(key, c); } c.l += hx.m[0][i]; c.m += hx.m[8][i]; c.p += hx.m[9][i]; }
+  // slot (from tm weekly rows)
+  const tx = grp('tm'), one = S.ch.size === 1 ? [...S.ch][0] : 'ALL', [f, t] = range(), wf = sow(f), slots = new Map();
+  for (let i = 0; i < tx.n; i++) { if (tx.k[0][i] < wf || tx.k[0][i] > t || tx.k[1][i] !== one || tx.k[2][i] === 'ALL') continue; const k = tx.k[2][i]; let a = slots.get(k); if (!a) { a = { l: 0, ans: 0, mat: 0, p14: 0, fn: 0, fw: 0 }; slots.set(k, a); } a.l += tx.m[0][i]; a.ans += tx.m[2][i]; a.mat += tx.m[8][i]; a.p14 += tx.m[9][i]; if (tx.m[13][i] > 0 && tx.m[14][i] >= 0) { a.fn += tx.m[13][i]; a.fw += tx.m[13][i] * tx.m[14][i]; } }
+  const gix = sel('gap', { date: 1, ch: 1 }), gp = by('gap', gix, (x, i) => x.k[2][i]);
+  return '<div class="row2b"><div class="card pn">' + head('تحويل 14 يوم حسب سرعة أول تواصل', 'speed') + barSvg(rows.map(([k]) => SPB[+k]), convs, (v) => (v * 100).toFixed(1) + '%', O, rows.map(([k, a]) => fmt(a[0]) + ' ليد'), 640) + '</div>'
+    + '<div class="card pn">' + head('تفصيل شرائح السرعة', 'speed') + tbl(['الشريحة', 'ليدز', 'رد%', 'دفعوا', 'تحويل 14 يوم'], rows.map(([k, a]) => [SPB[+k], fmt(a[0]), pct(dv(a[2], a[0])), fmt(a[6]), pct(dv(a[9], a[8]))])) + '</div></div>'
+    + '<div class="row11"><div class="card pn">' + head('وقت التسجيل في اليوم', 'slot') + tbl(['الفترة', 'ليدز', 'رد%', 'تحويل 14 يوم', 'وسيط أول تواصل'], [...slots.entries()].sort((a, b) => +a[0] - +b[0]).map(([k, a]) => [SLOT[+k], fmt(a.l), pct(dv(a.ans, a.l)), pct(dv(a.p14, a.mat)), hrs(a.fn ? a.fw / a.fn : -1)])) + '<div class="note">وسيط الفترة = متوسط مرجّح لوسيط كل أسبوع (تقريبي).</div></div>'
+    + '<div class="card pn">' + head('بُعد ميعاد الحصة التجريبية', 'gap', 'الوقت بين حجز التجريبية وميعادها') + tbl(['البُعد', 'حجزوا', 'حضروا', 'حضور%', 'حضروا ودفعوا', 'دفع من الحاضرين'], [...gp.entries()].sort((a, b) => +a[0] - +b[0]).map(([k, a]) => [GPB[+k], fmt(a[0]), fmt(a[4]), pct(dv(a[4], a[0])), fmt(a[10]), pct(dv(a[10], a[4]))])) + '</div></div>'
+    + '<div class="card pn">' + head('الليدز حسب اليوم والساعة', 'heat') + '<div class="tw">' + heat(cells, 'vol') + '</div></div>'
+    + '<div class="card pn">' + head('تحويل 14 يوم حسب اليوم والساعة (%)', 'heat') + '<div class="tw">' + heat(cells, 'conv') + '</div></div>';
+}
+
+// ---------- FUNNEL ----------
+function pFun() {
+  const ix = sel('core', { date: 1, ch: 1, st: 1, tg: 1 }); if (!ix.length) return empty();
+  const ixs = sel('core', { date: 1, ch: 1, tg: 1 }), L = sum('core', ixs)[0];
+  const st = by('core', ixs, (x, i) => x.k[2][i]); const strows = [...st.entries()].sort((a, b) => b[1][0] - a[1][0]);
+  const pix = sel('path', { date: 1, ch: 1 }), pt = by('path', pix, (x, i) => x.k[2][i]), pL = [...pt.values()].reduce((s, a) => s + a[0], 0);
+  const prow = [...pt.entries()].sort((a, b) => b[1][0] - a[1][0]).slice(0, 14);
+  const cix = sel('coh', { date: 1, ch: 1 }), cx = grp('coh'), asof = (F.getP().as_of || '').slice(0, 10) || F.minmax()[1], cm = by('coh', cix, (x, i) => x.k[0][i]);
+  const DD = [0, 2, 6, 13, 29];
+  const crow = [...cm.entries()].sort((a, b) => a[0] < b[0] ? 1 : -1).slice(0, 12).map(([w, a]) => [dm(w), fmt(a[0]), ...DD.map((d, j) => addD(w, 6 + d) <= asof ? pct(dv(a[10 + j], a[0])) : '<span class="mut">—</span>')]);
+  const fix = sel('fail', { date: 1, ch: 1 }), fl = by('fail', fix, (x, i) => x.k[2][i] + ' · ' + x.k[3][i]);
+  const flrows = [...fl.entries()].sort((a, b) => b[1][0] - a[1][0]).slice(0, 12), fmx = flrows.length ? flrows[0][1][0] : 0;
+  const tx = grp('tm'), one = S.ch.size === 1 ? [...S.ch][0] : 'ALL'; const wk = []; for (let i = 0; i < tx.n; i++) if (tx.k[1][i] === one && tx.k[2][i] === 'ALL') wk.push(i); wk.sort((a, b) => tx.k[0][a] < tx.k[0][b] ? 1 : -1);
+  const tmr = wk.slice(0, 6).map((i) => [dm(tx.k[0][i]), fmt(tx.m[0][i]), hrs(tx.m[14][i]), hrs(tx.m[16][i]), hrs(tx.m[18][i]), hrs(tx.m[20][i]), hrs(tx.m[22][i])]);
+  return '<div class="row11"><div class="card pn">' + head('المسار: أكتر 14 فرع', 'path', 'كل طالب ماشي في فرع واحد بس') + tbl(['الفرع', 'ليدز', 'نسبة', 'دفعوا', 'تحويل'], prow.map(([k, a]) => [pathLbl(k), fmt(a[0]), pct(dv(a[0], pL)), fmt(a[6]), pct(dv(a[6], a[0]))])) + '</div>'
+    + '<div class="card pn">' + head('آخر حالة سجّلها السيلز', 'laststatus') + tbl(['الحالة', 'المستوى', 'ليدز', 'نسبة', 'دفعوا', 'تحويل'], strows.map(([k, a]) => [esc(k), chip(LVN[lvOf(k)]), fmt(a[0]), pct(dv(a[0], L)), fmt(a[6]), pct(dv(a[6], a[0]))])) + '<div class="note">الحالة دي هي آخر ريمارك، فممكن تكون اتكتبت بعد الدفع.</div></div></div>'
+    + '<div class="row11"><div class="card pn">' + head('منحنى الكوهورت: الدفع التراكمي', 'cohort', 'كل صف أسبوع تسجيل') + tbl(['الأسبوع', 'ليدز', 'يوم 1', '3 أيام', '7 أيام', '14 يوم', '30 يوم'], crow) + '</div>'
+    + '<div class="card pn">' + head('دخلوا الدفع وما كمّلوش', 'fail', 'طريقة الدفع · آخر نتيجة') + tbl(['الطريقة · النتيجة', 'طلاب', 'محاولات', ''], flrows.map(([k, a]) => [esc(k), fmt(a[0]), fmt(a[10]), bar(a[0], fmx)])) + '</div></div>'
+    + '<div class="card pn">' + head('الأوقات بين المراحل (وسيط أسبوعي)', 'fc', 'من آخر 6 أسابيع. بتتأثر بالقناة (لو قناة واحدة) فقط.') + tbl(['الأسبوع', 'ليدز', 'أول تواصل', 'حجز التجريبية', 'حجز لحضور', 'تجريبية لدفع', 'تسجيل لدفع (بدون تجريبية)'], tmr) + '</div>';
+}
+
+// ---------- CHANNELS ----------
+function pCh() {
+  const ix = sel('core', { date: 1, ch: 1, st: 1, tg: 1 }); if (!ix.length) return empty();
+  const rows = chRows(ix).sort((a, b) => b.leads - a.leads), big = rows.filter((r) => r.leads >= 1000 && r.mat > 0);
+  const px = sel('plat', { date: 1 }), pm = by('plat', px, (x, i) => x.k[1][i] + ' · ' + x.k[2][i]); const prow = [...pm.entries()].sort((a, b) => b[1][0] - a[1][0]);
+  return '<div class="card pn">' + head('مصفوفة القنوات', 'channel') + tbl(['القناة', 'ليدز', 'رد%', 'حجز%', 'حضور%', 'دخول الدفع%', 'دفعوا', 'تحويل', 'تحويل 14 يوم', 'إيراد/ليد'], rows.map((r) => [chl(r.ch) + (EST[r.ch] ? ' ' + chip('تقديري', 'p') : ''), fmt(r.leads), pct(dv(r.a[2], r.leads)), pct(dv(r.a[3], r.leads)), pct(dv(r.a[4], r.a[3])), pct(dv(r.a[5], r.leads)), fmt(r.paid), pct(dv(r.paid, r.leads)), pct(dv(r.p14, r.mat)), fmt(dv(r.rev, r.leads))])) + '<div class="note">iOS وAndroid تقديريين: من إشارة جهاز التطبيق مش attribution حقيقي.' + inf('appest') + '</div></div>'
+    + '<div class="row11"><div class="card pn">' + head('تحويل 14 يوم لكل قناة (+1000 ليد)', 'conv14') + barSvg(big.map((r) => chl(r.ch).split(' (')[0]), big.map((r) => r.p14 / r.mat), (v) => (v * 100).toFixed(1) + '%', O, big.map((r) => fmt(r.leads)), 560) + '</div>'
+    + '<div class="card pn">' + head('المنصة (من الجهاز)') + tbl(['التسجيل · النظام', 'ليدز', 'رد%', 'حضروا', 'دخلوا الدفع', 'دفعوا', 'إيراد'], prow.map(([k, a]) => [esc(k), fmt(a[0]), pct(dv(a[2], a[0])), fmt(a[4]), fmt(a[5]), fmt(a[6]), fmt(a[7])])) + '<div class="note">شهري: التاريخ بيتقرّب لأول الشهر.</div></div></div>';
+}
+
+// ---------- INTEREST ----------
+function pInt() {
+  const ix = sel('core', { date: 1, ch: 1, tg: 1 }); if (!ix.length) return empty();
+  const L = sum('core', ix)[0], st = by('core', ix, (x, i) => x.k[2][i]);
+  const lv = new Map(); for (const [k, a] of st) { const g = lvOf(k); let q = lv.get(g); if (!q) { q = new Float64Array(F.NM); lv.set(g, q); } for (let j = 0; j < F.NM; j++) q[j] += a[j]; }
+  const lvr = [1, 2, 3, 4, 5].map((g) => [g, lv.get(g) || new Float64Array(F.NM)]);
+  const detail = [...st.entries()].sort((a, b) => lvOf(a[0]) - lvOf(b[0]) || b[1][0] - a[1][0]);
+  const rj = by('rj', sel('rj', { date: 1, ch: 1 }), (x, i) => x.k[2][i]), rl = by('rl', sel('rl', { date: 1, ch: 1 }), (x, i) => x.k[2][i]), sj = by('sj', sel('sj', { date: 1, ch: 1 }), (x, i) => x.k[2][i]);
+  const rjr = [0, 1, 2, 3].map((b) => [RJL[b], rj.get(String(b)) || new Float64Array(F.NM)]).sort((a, b) => b[1][0] - a[1][0]);
+  const rlr = [...rl.entries()].map(([k, a]) => [RLL[+k] || k, a]).sort((a, b) => b[1][0] - a[1][0]), rlT = rlr.reduce((s, r) => s + r[1][0], 0), rlmx = rlr.length ? rlr[0][1][0] : 0;
+  const sjr = [...sj.entries()].map(([k, a]) => [k === '-1' ? 'ما اختارش مادة' : SJL[+k] || k, a]).sort((a, b) => b[1][0] - a[1][0]);
+  const noCont = (lv.get(5) || [0])[0], paidNoCont = (lv.get(5) || [0, 0, 0, 0, 0, 0, 0])[6], paid = sum('core', ix)[6];
+  const hl = [['المهتم بيدفع أكتر من أي حد', pct(dv(lvr[0][1][6], lvr[0][1][0])) + ' من «مهتم» دفعوا، مقابل ' + pct(dv(lvr[1][1][6], lvr[1][1][0])) + ' من «متردد» و' + pct(dv(lvr[2][1][6], lvr[2][1][0])) + ' من «مش مهتم».'],
+    ['نص الليدز لسه ما اتعرفش اهتمامهم', pct(dv(noCont, L), 0) + ' من الليدز حالتهم «ما رد» أو «سكّر» أو بدون تواصل، ومنهم ' + fmt(paidNoCont) + ' دفعوا (' + pct(dv(paidNoCont, paid), 0) + ' من كل الدافعين).'],
+    ['انتبه لتوقيت الحالة', 'الحالة هي آخر ريمارك للطالب، وممكن تتسجّل بعد الدفع. فتحويل «مهتم» ده نتيجة، مش توقّع.']];
+  return '<div class="hls">' + hl.map((h) => '<div class="hl"><b>' + h[0] + '</b><p>' + h[1] + '</p></div>').join('') + '</div>'
+    + '<div class="row2b"><div class="card pn">' + head('تحويل كل مستوى اهتمام', 'iconv') + barSvg(lvr.map((r) => LVN[r[0]]), lvr.map((r) => dv(r[1][6], r[1][0]) || 0), (v) => (v * 100).toFixed(1) + '%', O, lvr.map((r) => fmt(r[1][0]) + ' ليد'), 520) + '</div>'
+    + '<div class="card pn">' + head('توزيع الليدز حسب المستوى', 'ilevel') + barSvg(lvr.map((r) => LVN[r[0]]), lvr.map((r) => r[1][0]), (v) => fmt(v), '#334155', lvr.map((r) => pct(dv(r[1][0], L), 0)), 520) + '</div></div>'
+    + '<div class="card pn">' + head('تفصيل الحالات') + tbl(['الحالة', 'المستوى', 'ليدز', 'نسبة', 'دفعوا', 'تحويل'], detail.map(([k, a]) => [esc(k), chip(LVN[lvOf(k)]), fmt(a[0]), pct(dv(a[0], L)), fmt(a[6]), pct(dv(a[6], a[0]))])) + '</div>'
+    + '<div class="row2b"><div class="card pn">' + head('سبب الرفض', 'rej') + barSvg(rjr.map((r) => r[0]), rjr.map((r) => r[1][0]), fmt, O, rjr.map((r) => fmt(r[1][6]) + ' دفعوا'), 520) + '<div class="note">الطالب ممكن يتسجّل له أكتر من سبب.</div></div>'
+    + '<div class="card pn">' + head('مين اللي رد', 'role') + tbl(['اللي رد', 'ليدز', 'دفعوا', 'تحويل', ''], rlr.map(([k, a]) => [k, fmt(a[0]), fmt(a[6]), pct(dv(a[6], a[0])), bar(a[0], rlmx)])) + '<div class="note">من ' + fmt(rlT) + ' ليد ردّوا.</div></div></div>'
+    + '<div class="card pn">' + head('المواد وقت التسجيل', 'subj') + barSvg(sjr.map((r) => r[0]), sjr.map((r) => dv(r[1][9], r[1][8]) || 0), (v) => (v * 100).toFixed(1) + '%', O, sjr.map((r) => fmt(r[1][0])), 760) + '<div class="note">الرسم بيعرض تحويل 14 يوم، وتحت كل عمود عدد الطلاب. المجموع بيعدّي عدد الليدز لأن الطالب ممكن يختار أكتر من مادة.</div></div>';
+}
+
+// ---------- STUDENTS ----------
+const STG = ['ابتدائي', 'متوسط', 'ثانوي', 'جامعي', 'عالمي', 'غير محدد'], ORD = ['أول', 'ثاني', 'ثالث', 'رابع', 'خامس', 'سادس'];
+function pStu() {
+  const ix = sel('grade', { date: 1, ch: 1 }); if (!ix.length) return empty();
+  const gm = by('grade', ix, (x, i) => x.k[3][i] + '|' + x.k[2][i]);
+  const rows = [...gm.entries()].map(([k, a]) => { const [stg, lv] = k.split('|'); return { stg, lv, a }; }).sort((p, q) => { const sa = STG.indexOf(p.stg), sb = STG.indexOf(q.stg); if (sa !== sb) return sa - sb; const ra = ORD.findIndex((o) => p.lv.startsWith(o)), rb = ORD.findIndex((o) => q.lv.startsWith(o)); return (ra < 0 ? 9 : ra) - (rb < 0 ? 9 : rb) || p.lv.localeCompare(q.lv); });
+  const px = grp('pkg'), pk = []; for (let i = 0; i < px.n; i++) pk.push({ m: px.k[0][i], i }); pk.sort((a, b) => a.m < b.m ? -1 : 1);
+  const pv = (j, f) => pk.map((p) => f(px.m[j][p.i]));
+  return '<div class="card pn">' + head('حسب الصف الدراسي', 'grade') + tbl(['المرحلة', 'الصف', 'ليدز', 'رد%', 'دفعوا', 'تحويل 14 يوم', 'إيراد', 'إيراد/ليد'], rows.map((r) => [chip(r.stg), esc(r.lv), fmt(r.a[0]), pct(dv(r.a[2], r.a[0])), fmt(r.a[6]), pct(dv(r.a[9], r.a[8])), fmt(r.a[7]), fmt(dv(r.a[7], r.a[0]))])) + '</div>'
+    + '<div class="card pn">' + head('تحويل 14 يوم لكل صف', 'conv14') + barSvg(rows.filter((r) => r.a[8] > 0).map((r) => r.lv.replace(' ابتدائي', '').replace(' متوسط', '').replace(' ثانوي', '')), rows.filter((r) => r.a[8] > 0).map((r) => dv(r.a[9], r.a[8])), (v) => (v * 100).toFixed(1) + '%', O, rows.filter((r) => r.a[8] > 0).map((r) => r.stg.slice(0, 3)), 900) + '</div>'
+    + '<div class="card pn">' + head('الباقات: نفس الأيام من كل شهر', 'pkg') + (pk.length ? tbl(['المؤشر'].concat(pk.map((p) => p.m)), [['عدد الطلبات'].concat(pv(0, fmt)), ['متوسط الطلب (ريال)'].concat(pv(1, fmt)), ['وسيط الطلب (ريال)'].concat(pv(2, fmt)), ['متوسط الساعات في الطلب'].concat(pv(3, (v) => v.toFixed(1))), ['سعر الساعة (ريال)'].concat(pv(4, fmt)), ['باقات ≤ 4 ساعات'].concat(pv(5, pct)), ['باقات 5–12 ساعة'].concat(pv(6, pct)), ['باقات 13–24 ساعة'].concat(pv(7, pct)), ['باقات +24 ساعة'].concat(pv(8, pct)), ['بالتقسيط'].concat(pv(9, pct)), ['بكوبون'].concat(pv(10, pct))]) : '<div class="note">مفيش داتا.</div>') + '</div>';
+}
+
+// ---------- DEFINITIONS & DATA HEALTH ----------
+function pDef() {
+  const p = F.getP(), gs = Object.keys(p.groups), mm = F.minmax();
+  const core = sum('core', sel('core', {})), L = core[0];
+  const defs = [['الليد', 'users.type = student، نشط، country_code = 966، sponsor_id = 0، تسجيل من ' + (p.d1 || '1 سبتمبر') + '.'], ['القناة', 'أول utm_source؛ بدون UTM: تطبيق iOS/Android، ثم WhatsApp، وإلا Organic.'], ['الدفع والإيراد', 'checkout_logs: status = success وغير مسترد، منسوب لتاريخ تسجيل الليد (مش تاريخ الدفع).'], ['التجريبية', 'bookings.is_trial_session = 1 أو session_logs.is_trial_session = 1. «حضر» = الطالب والمدرّس دخلوا قبل أول دفع.'], ['تحويل 14 يوم', 'دفع خلال 14 يوم من التسجيل، لليدز اللي عدّى عليها 14 يوم بس.'], ['أسبوع', 'من الأحد.'], ['المقارنة بنفس الفترة', 'كل شهر من أوله لنفس اليوم والساعة من الشهر الحالي، وبالدفع والتواصل والحجز اللي حصل قبل النقطة دي بس.']];
+  const lim = ['حالة الاتصال والتاج بيشتغلوا على الجداول اللي مبنية على core بس (النظرة العامة، المسار، القنوات، الاهتمام).', 'الأسباب ومين رد والمواد والصف والكوهورت والسيلز أسبوعية: فلتر التاريخ بيتقرّب لبداية الأسبوع.', 'الوسيط على مستوى السيلز والفترة متوسط مرجّح لوسيط الأسابيع (تقريبي). وسيط الفريق الأسبوعي دقيق.', 'التاج متوفر لحوالي خُمس الليدز بس، فالباقي بيظهر «(بدون تاج)».', 'iOS وAndroid تقدير من إشارة جهاز التطبيق مش attribution حقيقي.', 'لا يوجد صرف ولا CPL ولا ROAS هنا: عندكم داشبورد الإعلانات.'];
+  return (p.warnings.length ? '<div class="mock" style="background:#FDECEA;border-color:#f5b5ae;color:#a12a20"><b>تحذيرات من فحص الداتا:</b><ul style="margin:6px 0 0;padding-inline-start:18px">' + p.warnings.map((w) => '<li>' + esc(w) + '</li>').join('') + '</ul></div>' : '<div class="mock" style="background:#ECFDF5;border-color:#a7f3d0;color:#047857">فحص الداتا: كل الجداول المجمّعة بتدّي نفس إجمالي الليدز والدفع والإيراد، ومفيش pk مكرر.</div>')
+    + '<div class="sc2"><div class="card"><h3>التعريفات</h3><ul>' + defs.map((d) => '<li><b>' + d[0] + ':</b> ' + d[1] + '</li>').join('') + '</ul></div>'
+    + '<div class="card"><h3>حدود النسخة دي (وضع الشيت)</h3><ul>' + lim.map((x) => '<li>' + x + '</li>').join('') + '</ul></div>'
+    + '<div class="card"><h3>صحة الداتا</h3><ul><li>آخر تحديث للشيت: ' + esc(p.as_of || '—') + ' (بتوقيت الرياض).</li><li>الليدز في الشيت: ' + fmt(L) + '، من ' + mm[0] + ' لحد ' + mm[1] + '.</li><li>صفوف الشيت: ' + fmt(p.row_count) + ' في ' + gs.length + ' جدول.</li><li>الصفحة اتحمّلت: ' + esc(p.generated_at || '') + (p.read_ms ? ' (قراءة الشيت ' + p.read_ms + ' مللي ثانية)' : '') + '.</li></ul></div></div>'
+    + '<div class="card pn">' + head('الجداول المقروءة من الشيت') + tbl(['الجدول (g)', 'صفوف'], gs.map((g) => [g, fmt(p.groups[g].n)])) + '</div>';
+}
+const BUILD = { ov: pOv, sales: pSales, spd: pSpd, fun: pFun, ch: pCh, int: pInt, stu: pStu, def: pDef };
+
+// ---------- shell ----------
+function ddHtml(id, label, items, selected, multi) {
+  const txt = multi ? (selected.size ? (selected.size === 1 ? esc([...selected][0]) : selected.size + ' مختارين') : 'الكل') : esc(selected);
+  return '<div class="dd' + (OPEN === id ? ' open' : '') + '"><span class="ddl">' + label + '</span><button type="button" class="ddb" data-dd="' + id + '"><span>' + txt + '</span><i>▾</i></button><div class="ddm">' + items.map((i) => '<div class="ddi' + ((multi ? selected.has(i[0]) : selected === i[0]) ? ' on' : '') + '" data-dd="' + id + '" data-v="' + esc(i[0]) + '">' + (multi ? ((selected.has(i[0]) ? '☑ ' : '☐ ') + esc(i[1])) : esc(i[1])) + '</div>').join('') + '</div></div>';
+}
+function fbHtml() {
+  const [f, t] = range();
+  return ddHtml('preset', 'التاريخ (تاريخ تسجيل الليد)', PRESETS.map((x) => [x, x === 'Lifetime' ? 'Lifetime · ' + F.minmax()[0] + ' ← ' + F.minmax()[1] : x]), S.preset, false)
+    + (S.preset === 'Custom' ? '<div class="dd"><span class="ddl">من / إلى</span><div class="ctl"><input type="date" id="cf" value="' + f + '" min="' + F.minmax()[0] + '" max="' + F.minmax()[1] + '"/><input type="date" id="ct" value="' + t + '" min="' + F.minmax()[0] + '" max="' + F.minmax()[1] + '"/></div></div>' : '')
+    + ddHtml('ch', 'القناة', CHS.map((c) => [c, chl(c)]), S.ch, true) + ddHtml('st', 'حالة الاتصال (آخر حالة)', STS.map((c) => [c, c]), S.st, true) + ddHtml('tg', 'التاج', TGS.map((c) => [c, c]), S.tg, true);
+}
+function renderFB() { $('fb').innerHTML = fbHtml(); }
+function renderNav() { $('nav').innerHTML = PAGES.map((p) => '<button class="nav' + (S.page === p[0] ? ' on' : '') + (p[0] === 'sales' ? ' star' : '') + '" data-nav="' + p[0] + '">' + p[1] + '<small>' + p[2] + '</small></button>').join(''); }
+function renderPage() {
+  const [f, t] = range(), tt = TITLES[S.page];
+  let body; try { body = BUILD[S.page](); } catch (e) { console.error(e); body = '<div class="card pn"><div class="note">حصل خطأ وانا برسم الصفحة: ' + esc(e.message) + '</div></div>'; }
+  $('pg').innerHTML = '<h1>' + tt[0] + '</h1><div class="sub">' + tt[1] + (S.page === 'def' ? '' : ' · ' + f + ' ← ' + t) + '</div>' + (STALE ? '<div class="mock" style="background:#FFF7ED">الداتا دي من آخر نسخة ناجحة: الشيت ما اتقرأش المرة الأخيرة (' + esc(STALE) + ').</div>' : '') + (FNOTE[S.page] ? '<div class="mock">' + FNOTE[S.page] + '</div>' : '') + body;
+}
+function renderAll() { renderNav(); renderFB(); $('fb').style.display = S.page === 'def' ? 'none' : ''; renderPage(); $('asof').textContent = ASOF ? ASOF.slice(0, 16).replace('T', ' ') : '—'; $('sfoot').innerHTML = 'الليدز: من ' + F.minmax()[0] + '<br>آخر تسجيل: ' + F.minmax()[1]; }
+
+function uniq(g, k) { const x = grp(g), m = new Map(); for (let i = 0; i < x.n; i++) m.set(x.k[k][i], (m.get(x.k[k][i]) || 0) + x.m[0][i]); return [...m.entries()].sort((a, b) => b[1] - a[1]).map((e) => e[0]); }
+function init(p) {
+  F.load(p); const x = grp('core');
+  let mn = '9999', mx = '0000'; for (let i = 0; i < x.n; i++) { const d = x.k[0][i]; if (d < mn) mn = d; if (d > mx) mx = d; }
+  F.setMinMax(mn, mx); CHS = uniq('core', 1); STS = uniq('core', 2); TGS = uniq('core', 3); ASOF = p.as_of ? p.as_of.replace(' ', 'T') : '';
+  S.ch.clear(); S.st.clear(); S.tg.clear(); renderAll();
+}
+function setPage(p) { S.page = p; OPEN = null; renderAll(); }
+function pick(id, v) {
+  if (id === 'preset') { S.preset = v; OPEN = null; renderFB(); renderPage(); return; }
+  const set = S[id]; if (set.has(v)) set.delete(v); else set.add(v); renderFB(); renderPage();
+}
+function setOpt(k, v) { S[k] = v; renderPage(); }
+async function load(refresh) {
+  try {
+    const r = await fetch('/api/data' + (refresh ? '?refresh=1' : ''));
+    if (!r.ok) { let m = 'HTTP ' + r.status; try { const j = await r.json(); m = j.error || m; } catch (e) { } throw new Error(m); }
+    STALE = r.headers && r.headers.get && r.headers.get('X-Data-Stale') ? (r.headers.get('X-Data-Error') || 'خطأ مؤقت') : '';
+    init(await r.json());
+  } catch (e) { $('pg').innerHTML = '<div class="card pn"><h3>الداتا ما اتحمّلتش</h3><div class="note" style="direction:ltr;text-align:left">' + esc(e.message) + '</div><div class="note">لو الرسالة عن environment variables أو الشيت: راجع README. ممكن تفتح /api/data?diag=1 لمعرفة حالة الإعدادات، و/api/data?probe=1 لعرض أول صفوف الشيت.</div></div>'; }
+}
+function wire() {
+  document.addEventListener('click', (e) => {
+    const t = e.target, c = (s) => t.closest && t.closest(s); let x;
+    if ((x = c('[data-nav]'))) return setPage(x.getAttribute('data-nav'));
+    if ((x = c('.ddi'))) return pick(x.getAttribute('data-dd'), x.getAttribute('data-v'));
+    if ((x = c('.ddb'))) { const id = x.getAttribute('data-dd'); OPEN = OPEN === id ? null : id; return renderFB(); }
+    if ((x = c('[data-set]'))) return setOpt(x.getAttribute('data-set'), x.getAttribute('data-v'));
+    if ((x = c('[data-sort]'))) { const k = x.getAttribute('data-sort'); if (S.agSort === k) S.agDir = -S.agDir; else { S.agSort = k; S.agDir = k === 'name' ? 1 : -1; } S.agPage = 1; return agRefresh(); }
+    if ((x = c('[data-pg]'))) { S.agPage = +x.getAttribute('data-pg'); return agRefresh(); }
+    if (c('#refresh')) return load(true);
+    if (OPEN && !c('.dd')) { OPEN = null; renderFB(); }
+  });
+  document.addEventListener('change', (e) => { const id = e.target.id; if (id === 'cf' || id === 'ct') { S[id === 'cf' ? 'from' : 'to'] = e.target.value; renderPage(); } });
+  document.addEventListener('input', (e) => { const id = e.target.id; if (id === 'agQ') { S.agQ = e.target.value; S.agPage = 1; agRefresh(); } if (id === 'agMin') { S.agMin = +e.target.value || 0; S.agPage = 1; agRefresh(); } });
+}
+function agRefresh() { const b = $('agBox'); if (b) b.innerHTML = agTable(); }
+window.__app = { init, setPage, pick, setOpt, renderPage, agRefresh, html: () => $('pg').innerHTML, state: S, load };
+if (typeof document !== 'undefined' && document.addEventListener && typeof fetch === 'function' && !window.__TEST__) { wire(); load(false); }
+})();
+</script></body></html>

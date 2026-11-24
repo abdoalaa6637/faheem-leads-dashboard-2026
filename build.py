@@ -1,0 +1,8 @@
+import re
+m = open('/mnt/data/faheem_leads_mockup_v3.html', encoding='utf-8').read()
+css = re.search(r'<style>(.*?)</style>', m, re.S).group(1)
+extra = ".mut{color:#B3B3B3}.tb{height:5px;background:#FFEDD5;border-radius:99px;margin:5px 0 2px;overflow:hidden;min-width:70px}.tb i{display:block;height:100%;background:var(--o);border-radius:99px}.nav small:empty{display:none}.k8{grid-template-columns:repeat(4,1fr)}.ctl input[type=date]{width:150px}#pg h3{margin:0 0 6px}.pills button{white-space:nowrap}.card.pn h3{display:flex;align-items:center}"
+js = open('src/app1.js', encoding='utf-8').read() + '\n' + open('src/app2.js', encoding='utf-8').read()
+html = f'''<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>فهيم · مسار الليدز والسيلز</title><style>{css}{extra}</style></head><body><div class="frame"><div class="app"><aside class="side"><div class="brand"><span class="lg">ف</span><b>فهيم</b></div><div id="nav" style="display:contents"></div><div class="sfoot" id="sfoot"></div></aside><div class="mainw"><header class="top"><div><b>مسار الليدز والسيلز</b></div><div class="refresh"><div class="rt"><small>آخر تحديث للشيت (بتوقيت الرياض)</small><b id="asof">—</b></div><button class="rbtn" id="refresh" title="تحديث الداتا الآن">↻</button></div></header><main class="content"><div class="fcards" id="fb"></div><div id="pg"><div class="card pn"><div class="note">جاري تحميل الداتا…</div></div></div></main></div></div></div><script>{js}</script></body></html>'''
+open('index.html', 'w', encoding='utf-8').write(html)
+print('index.html KB', round(len(html.encode()) / 1024), '| css KB', round(len(css) / 1024), '| js KB', round(len(js.encode()) / 1024))

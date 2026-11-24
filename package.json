@@ -1,0 +1,7 @@
+{
+  "name": "faheem-leads-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Faheem leads -> sales dashboard (sheet mode: Hightouch -> Google Sheet -> Vercel)",
+  "engines": { "node": ">=18" }
+}
